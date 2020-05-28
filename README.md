@@ -1,2 +1,1 @@
-# Checkout
-Shopify Checkout App
+custom checkout
