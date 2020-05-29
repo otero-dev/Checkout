@@ -8,8 +8,9 @@ const BillingAddress = (props) => {
                 <Box>
                     <h3>STEP 5: BILLING ADDRESS</h3>
                 </Box>
+                <hr />
                 <Box>
-                    <h3>STEP 5: BILLING ADDRESS</h3>
+                    
                 </Box>
             </Card>
         </Box>

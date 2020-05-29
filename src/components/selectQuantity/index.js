@@ -8,8 +8,9 @@ const SelectQuantity = (props) => {
                 <Box>
                     <h3>STEP 1: SELECT ORDER QUANTITY</h3>
                 </Box>
+                <hr />
                 <Box>
-                    <h3>STEP 1: SELECT ORDER QUANTITY</h3>
+
                 </Box>
             </Card>
         </Box>

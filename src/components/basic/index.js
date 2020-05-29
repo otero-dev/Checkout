@@ -126,3 +126,18 @@ export const Card = styled.div`
   border: 1px solid #ccc;
 `;
 
+export const CheckOff = styled.div`
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid black;
+`
+
+export const MenuItem = styled.div`
+  height: 70px;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+`
+
+

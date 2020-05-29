@@ -8,8 +8,9 @@ const CustomerInfo = (props) => {
                 <Box>
                     <h3>STEP 3: CUSTOMER INFORMATION</h3>
                 </Box>
+                <hr />
                 <Box>
-                    <h3>STEP 3: CUSTOMER INFORMATION</h3>
+                    
                 </Box>
             </Card>
         </Box>

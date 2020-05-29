@@ -1,5 +1,7 @@
 import React from 'react';
 import { Box, Card } from '../basic';
+import PaypalItem from './PaypalItem';
+import CreditItem from './CreditItem';
 
 const SelectMethod = (props) => {
     return (
@@ -8,12 +10,17 @@ const SelectMethod = (props) => {
                 <Box>
                     <h3>STEP 2: PAYMENT METHOD</h3>
                 </Box>
+                <hr />
                 <Box>
-                    <h3>STEP 2: PAYMENT METHOD</h3>
+                    <Box>
+                        <PaypalItem />
+                    </Box>
+                    <Box>
+                        <CreditItem />
+                    </Box>
                 </Box>
             </Card>
         </Box>
-        
     )
 }
 
