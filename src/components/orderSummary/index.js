@@ -8,8 +8,9 @@ const OrderSummary = (props) => {
                 <Box>
                     <h3>STEP 4: ORDER SUMMARY</h3>
                 </Box>
+                <hr />
                 <Box>
-                    <h3>STEP 4: ORDER SUMMARY</h3>
+
                 </Box>
             </Card>
         </Box>

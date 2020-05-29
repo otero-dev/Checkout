@@ -12,6 +12,23 @@ import BillingAddress from './components/billingAddress';
 import Nav from './components/navbar';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedMethod: 'paypal'
+    }
+  }
+
+  componentDidMount() {
+
+  }
+
+  changeMethod = (method) => {
+    this.setState({
+      selectedMethod: method
+    })
+  }
+
   render() {
     return (
       <Box className="App" pb={10}>
@@ -25,7 +42,7 @@ class App extends Component {
               <SelectQuantity />
             </Box>            
             <Box width='48%'>
-              <SelectMethod />
+              <SelectMethod changeMethod={this.changeMethod}/>
               <CustomerInfo />
               <OrderSummary />
               <ShipInformation />
