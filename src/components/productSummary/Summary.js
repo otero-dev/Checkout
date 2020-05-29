@@ -11,19 +11,19 @@ const Summary = (props) => {
                 </h1>
             </Box>
             
-            <Box m={'5px'}> 
+            <Box m={'15px'}>
                 Now is the Perfect Time to Turn Dark Yards into Stunning Outdoor Spaces with PathBright            
             </Box>
 
-            <Box m={'5px'}>
+            <Box m={'15px'}>
                 Super Easy to Use - Just Stick it into the Ground and Enjoy Your Transformed Yard at Night            
             </Box>
 
-            <Box m={'5px'}>
+            <Box m={'15px'}>
                 Installs in Minutes - No Untangling Wires, Replacing Batteries, or Spending Money on Professional Help            
             </Box>
 
-            <Box m={'5px'}>
+            <Box m={'15px'}>
                 Solar Powered - Can Save Money on Your Power Bill by Using the Sun’s Free Energy            
             </Box>
         </Box>

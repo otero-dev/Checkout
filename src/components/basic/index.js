@@ -82,7 +82,6 @@ export const Box = styled.div`
 `;
 
 export const Container = styled.div`
-  display: flex;
   width: 65%;
   margin: auto;
 `;
@@ -101,7 +100,6 @@ export const ProductSummaryWrapper = styled.div`
   padding: 40px;
   border: 2px dashed black;
   display: flex;
-  width: 100%;
   background: #fff;
 `;
 
@@ -116,18 +114,15 @@ export const ProductDescription = styled.div`
   display: flex;
   height: 400px;
   width: 400px;
-  background: #eee;
+  background: #efefef;
 `;
 
 
 // Select Quantity
-export const SelectQuantity = styled.div`
-  margin-top: 10px;
-  min-height: 200px;
-  padding: 20px;
-  border: 2px dashed black;
-  display: flex;
-  width: 100%;
+export const Card = styled.div`
+  padding: 15px;  
   background: #fff;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 `;
 
