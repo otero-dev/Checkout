@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Container, Summary } from './components/basic';
+import { Container } from './components/basic';
+import ProductSummary from './components/productSummary';
 
 import Nav from './components/navbar';
 
@@ -9,7 +10,7 @@ class App extends Component {
       <div className="App">
         <Nav />
         <Container>
-          <Summary>product overview</Summary>
+          <ProductSummary />
         </Container>
       </div>
     );
