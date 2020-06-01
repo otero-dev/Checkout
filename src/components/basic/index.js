@@ -127,8 +127,8 @@ export const Card = styled.div`
 `;
 
 export const CheckOff = styled.div`
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   border: 2px solid black;
 `;

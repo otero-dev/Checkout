@@ -4,7 +4,7 @@ import { Box, CheckOff, MenuItem } from '../basic';
 const CreditItem = (props) => {    
     return (
         <MenuItem onClick={() => props.selectMethod('credit')}>            
-            {props.selected==='credit' ? <Box width={24} height={24}>
+            {props.selected==='credit' ? <Box width={20} height={20}>
                 <img src='/static/images/check.png' width='100%' alt="" />
             </Box>
             : <CheckOff />}
