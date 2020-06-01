@@ -131,13 +131,44 @@ export const CheckOff = styled.div`
   height: 20px;
   border-radius: 50%;
   border: 2px solid black;
-`
+`;
 
 export const MenuItem = styled.div`
   height: 70px;
   border-bottom: 1px solid #ccc;
   display: flex;
   align-items: center;
+  cursor: pointer;
+`;
+
+// Custom Input Field
+export const InputField = styled.input`
+  width: calc(100% - 35.2px);
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  margin-top: 17.6px;
+  background-color: whitesmoke;
+  padding: 17.6px;
+  font-size: 16px;
+  &:focus {
+    box-shadow: 0px 0px 0px 2px rgba(26,178,44,0.5);
+  }
+`;
+
+export const SelectBox = styled.select`
+  height: 53.2px;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  margin-top: 17.6px;
+  background-color: whitesmoke;
+  padding: 17.6px;
+  font-size: 16px;
+  &:focus {
+    box-shadow: 0px 0px 0px 2px rgba(26,178,44,0.5);
+  }
 `
 
 

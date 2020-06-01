@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Card } from '../basic';
+import { Box, Card, InputField } from '../basic';
 
 const CustomerInfo = (props) => {
     return (
@@ -10,7 +10,20 @@ const CustomerInfo = (props) => {
                 </Box>
                 <hr />
                 <Box>
-                    
+                    <Box display='flex' justifyContent='space-between'>
+                        <Box width='48%'>
+                            <InputField placeholder='First Name' required/>
+                        </Box>
+                        <Box width='48%'>
+                            <InputField placeholder='Last Name' required/>
+                        </Box>
+                    </Box>
+                    <Box>
+                        <InputField placeholder='E-mail' required/>
+                    </Box>
+                    <Box>
+                        <InputField type='tel' placeholder='Phone' required/>
+                    </Box>
                 </Box>
             </Card>
         </Box>
