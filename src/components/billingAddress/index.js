@@ -1,7 +1,11 @@
-import React from 'react';
-import { Box, Card, InputField, SelectBox } from '../basic';
+import React, { useState, useEffect } from 'react';
+import { Box, Card, InputField, SelectBox, CheckOff, MenuItem } from '../basic';
 
 const BillingAddress = (props) => {
+    const [useSame, setUseSame] = useState(false);
+    useEffect(() => {
+        console.log('useSame', useSame);
+    }, [useSame])
     return (
         <Box mt={20}>
             <Card>
@@ -10,6 +14,28 @@ const BillingAddress = (props) => {
                 </Box>
                 <hr />
                 <Box>
+                    <Box onClick={() => setUseSame(true)} display='flex' height={30} alignItems='center'>
+                        {useSame ? <Box width={20} height={20}>
+                            <img src='/static/images/check.png' width='100%' alt="" />
+                        </Box>
+                        : <CheckOff />}
+                        <Box ml={20}>
+                            Same as shipping address
+                        </Box>
+                    </Box>
+                    <Box onClick={() => setUseSame(false)} display='flex' height={30} alignItems='center'>
+                        {!useSame ? <Box width={20} height={20}>
+                            <img src='/static/images/check.png' width='100%' alt="" />
+                        </Box>
+                        : <CheckOff />}
+                        <Box ml={20}>
+                            Use a different billing address
+                        </Box>
+                    </Box>
+                </Box>
+                {!useSame &&
+                <Box>
+                    
                     <Box display='flex' justifyContent='space-between'>
                         <Box width='48%'>
                             <InputField placeholder='First Name' required/>
@@ -109,7 +135,7 @@ const BillingAddress = (props) => {
                             <InputField placeholder='Postal Code'/>
                         </Box>
                     </Box>
-                </Box>
+                </Box>}
             </Card>
         </Box>
     )
