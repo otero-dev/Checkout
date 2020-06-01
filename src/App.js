@@ -24,6 +24,7 @@ class App extends Component {
   }
 
   changeMethod = (method) => {
+    console.log('method', method);
     this.setState({
       selectedMethod: method
     })
@@ -42,7 +43,7 @@ class App extends Component {
               <SelectQuantity />
             </Box>            
             <Box width='48%'>
-              <SelectMethod changeMethod={this.changeMethod}/>
+              <SelectMethod selectMethod={this.changeMethod} selected={this.state.selectedMethod}/>
               <CustomerInfo />
               <OrderSummary />
               <ShipInformation />

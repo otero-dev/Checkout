@@ -4,6 +4,7 @@ import PaypalItem from './PaypalItem';
 import CreditItem from './CreditItem';
 
 const SelectMethod = (props) => {
+    console.log(props.selected)
     return (
         <Box mt={20}>
             <Card>
@@ -13,10 +14,10 @@ const SelectMethod = (props) => {
                 <hr />
                 <Box>
                     <Box>
-                        <PaypalItem />
+                        <PaypalItem {...props}/>
                     </Box>
                     <Box>
-                        <CreditItem />
+                        <CreditItem {...props}/>
                     </Box>
                 </Box>
             </Card>
