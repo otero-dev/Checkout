@@ -7,9 +7,11 @@ import CustomerInfo from './components/customerInfo';
 import OrderSummary from './components/orderSummary';
 import ShipInformation from './components/shipInformation';
 import BillingAddress from './components/billingAddress';
-
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
 
 import Nav from './components/navbar';
+const stripePromise = loadStripe('pk_test_NqtC5d58MB9RN6aZ6rORtJCb');
 
 class App extends Component {
   constructor(props) {
