@@ -38,7 +38,7 @@ import {
   size,
   ratio,
 } from 'styled-system';
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 
 export const Box = styled.div`
   ${space}
@@ -170,5 +170,58 @@ export const SelectBox = styled.select`
     box-shadow: 0px 0px 0px 2px rgba(26,178,44,0.5);
   }
 `
+
+export const DiscountBrand = styled.div`
+    width: 100px;
+    min-width: 100px;
+    height: 100px;
+    background-color: #c91f3f;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-size: 22px;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+    line-height: 110%;
+`;
+
+const spin = keyframes`  
+  100% {
+    transform:rotate(360deg); 
+  }
+`
+
+export const DiscoundDash = styled.div`
+    width: 84px;
+    height: 84px;
+    border: 2px dashed white;
+    position: absolute;
+    border-radius: 100%;
+    animation-name: ${spin};
+    animation-duration: 12s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-delay: 0s;
+`
+
+export const DiscountDescription = styled.div`
+  text-align: center;
+  padding: 0 20px;
+  & h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    color: #c91f3f;
+  }
+  & h4 {
+    font-weight: normal;
+    font-size: 16px;
+    margin: 8.8px 0 0 0;
+    line-height: 140%;
+  }
+`;
 
 
