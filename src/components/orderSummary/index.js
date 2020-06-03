@@ -1,21 +1,12 @@
 import React from 'react';
-import { Box, Card } from '../basic';
+import PaypalOrder from './paypalOrder';
+import CreditOrder from './creditOrder';
 
 const OrderSummary = (props) => {
     return (
-        <Box mt={20}>
-            <Card>
-                <Box>
-                    <h3>STEP 4: ORDER SUMMARY</h3>
-                </Box>
-                <hr />
-                <Box>
-
-                </Box>
-            </Card>
-        </Box>
-        
+        <React.Fragment>
+            {props.method === 'paypal' ?  <PaypalOrder /> : < CreditOrder />}
+        </React.Fragment>
     )
 }
-
 export default OrderSummary;
