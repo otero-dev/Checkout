@@ -1,7 +1,59 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import { Box, Card, InputField, SelectBox } from '../basic';
+import {Elements, CardElement} from '@stripe/react-stripe-js';
+import {loadStripe} from '@stripe/stripe-js';
+
+import { useEffect, useState } from "react";
+
+const useResponsiveFontSize = () => {
+  const getFontSize = () => (window.innerWidth < 450 ? "18px" : "20px");
+  const [fontSize, setFontSize] = useState(getFontSize);
+
+  useEffect(() => {
+    const onResize = () => {
+      setFontSize(getFontSize());
+    };
+
+    window.addEventListener("resize", onResize);
+
+    return () => {
+      window.removeEventListener("resize", onResize);
+    };
+  });
+
+  return fontSize;
+}
+
+
+const stripePromise = loadStripe('pk_test_JJ1eMdKN0Hp4UFJ6kWXWO4ix00jtXzq5XG');
+const useOptions = () => {
+    const fontSize = useResponsiveFontSize();
+    const options = useMemo(
+      () => ({
+        style: {
+          base: {
+            fontSize,
+            color: "gray",
+            letterSpacing: "0.025em",
+            fontFamily: "Source Code Pro, monospace",
+            backgroundColor: "whitesmoke",
+            "::placeholder": {
+              color: "#aab7c4"
+            }
+          },
+          invalid: {
+            color: "#9e2146"
+          }
+        }
+      }),
+      [fontSize]
+    );
+  
+    return options;
+  };
 
 const ShipInformation = (props) => {    
+    const options = useOptions();
     return (
         <Box mt={20}>
             <Card>
@@ -97,51 +149,12 @@ const ShipInformation = (props) => {
                         <Box width='35%'>
                             <InputField placeholder='Zip Code'/>
                         </Box>
-                    </Box>
-                    <Box>
-                        <InputField placeholder='Credit Card Number'/>
-                    </Box>
-                    <Box>
-                        <InputField placeholder='Security Code (3~4 Digits)'/>
-                    </Box>
-                    <Box display='flex' justifyContent='space-between'>
-                        <Box width='48%'>
-                            <SelectBox>
-                            <option value="0">Exp Month</option>
-                            <option value="01">01 - January</option>
-                            <option value="02">02 - February</option>
-                            <option value="03">03 - March</option>
-                            <option value="04">04 - April</option>
-                            <option value="05">05 - May</option>
-                            <option value="06">06 - June</option>
-                            <option value="07">07 - July</option>
-                            <option value="08">08 - August</option>
-                            <option value="09">09 - September</option>
-                            <option value="10">10 - October</option>
-                            <option value="11">11 - November</option>
-                            <option value="12">12 - December</option>
-                            </SelectBox>
-                        </Box>
-                        <Box width='48%'>
-                            <SelectBox>
-                                <option value="0">Exp Year</option>
-                                <option value="2020">2020</option>
-                                <option value="2021">2021</option>
-                                <option value="2022">2022</option>
-                                <option value="2023">2023</option>
-                                <option value="2024">2024</option>
-                                <option value="2025">2025</option>
-                                <option value="2026">2026</option>
-                                <option value="2027">2027</option>
-                                <option value="2028">2028</option>
-                                <option value="2029">2029</option>
-                                <option value="2030">2030</option>
-                                <option value="2031">2031</option>
-                                <option value="2032">2032</option>
-                                <option value="2033">2033</option>
-                                <option value="2034">2034</option>
-                            </SelectBox>
-                        </Box>
+                    </Box>                    
+                    <Box mt={20}>
+                        <Box>Add Card Info</Box>
+                        <Elements stripe={stripePromise}>
+                            <CardElement options={options}/>
+                        </Elements>
                     </Box>
                 </Box>
             </Card>

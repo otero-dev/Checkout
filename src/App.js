@@ -7,11 +7,18 @@ import CustomerInfo from './components/customerInfo';
 import OrderSummary from './components/orderSummary';
 import ShipInformation from './components/shipInformation';
 import BillingAddress from './components/billingAddress';
-import { loadStripe } from '@stripe/stripe-js';
+
 import Nav from './components/navbar';
 
 
 function App(){
+  // return (
+  //   <Elements stripe={stripePromise}>
+  //     <CardNumberElement />        
+  //     <CardExpiryElement />
+  //     <CardCvcElement />
+  //   </Elements>
+  // );
   const [selectedMethod, setSelectedMethod] = useState('paypal');
   const [paidFor, setPaidFor] = useState(false);
   const [loaded, setLoaded] = useState(false);
@@ -74,10 +81,11 @@ function App(){
           <Box width='48%'>
             <SelectMethod selectMethod={changeMethod} selected={selectedMethod}/>
             <CustomerInfo />
-            <OrderSummary />
-            <ShipInformation />
-            <BillingAddress />
-            {/* <OrderSummary /> */}
+            {selectedMethod === 'credit' && <React.Fragment>
+              <ShipInformation />
+              <BillingAddress />
+            </React.Fragment>}
+            <OrderSummary method={selectedMethod}/>
             <div ref={v => (paypalRef = v)} />
           </Box>
         </Box>
