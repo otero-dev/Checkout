@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Card, InputField, SelectBox, CheckOff, MenuItem } from '../basic';
+import { Box, Card, InputField, SelectBox, CheckOff } from '../basic';
 
 const BillingAddress = (props) => {
     const [useSame, setUseSame] = useState(false);
