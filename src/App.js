@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import { Container, Box } from './components/basic';
 import ProductSummary from './components/productSummary';
 import SelectQuantity from './components/selectQuantity';
@@ -8,55 +8,82 @@ import OrderSummary from './components/orderSummary';
 import ShipInformation from './components/shipInformation';
 import BillingAddress from './components/billingAddress';
 import { loadStripe } from '@stripe/stripe-js';
-import { Elements } from '@stripe/react-stripe-js';
-
 import Nav from './components/navbar';
-const stripePromise = loadStripe('pk_test_NqtC5d58MB9RN6aZ6rORtJCb');
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedMethod: 'paypal'
+
+function App(){
+  const [selectedMethod, setSelectedMethod] = useState('paypal');
+  const [paidFor, setPaidFor] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+
+  let paypalRef = useRef();
+
+  const product = {
+    price: 777.77,
+    description: 'fancy chair, like new',
+  };
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://www.paypal.com/sdk/js?client-id=ARNRNvgJTH0oaRUrQUC-p-MG";
+    script.addEventListener("load", () => setLoaded(true));
+    document.body.appendChild(script);
+
+    if(loaded) {
+      setTimeout(() => {
+        window.paypal
+          .Buttons({
+            createOrder: (data, actions) => {
+              return actions.order.create({
+                purchase_units: [
+                  {
+                    description: 'test order description',
+                    amound: {
+                      currency_code: "USD",
+                      value: 10.0
+                    }
+                  }
+                ]
+              });
+            },
+            onApprove: async (data, actions) => {
+              const order = await actions.order.capture();
+              setPaidFor(true);
+              console.log(order);
+            },
+          })
+          .render(paypalRef);
+      });
     }
-  }
+  });
 
-  componentDidMount() {
-
-  }
-
-  changeMethod = (method) => {
-    console.log('method', method);
-    this.setState({
-      selectedMethod: method
-    })
-  }
-
-  render() {
-    return (
-      <Box className="App" pb={10}>
-        <Nav />
-        <Container>
-          <Box>
-            <ProductSummary />
+  const changeMethod = (method) => {
+    setSelectedMethod(method);
+  }  
+  return (
+    <Box className="App" pb={10}>
+      <Nav />
+      <Container>
+        <Box>
+          <ProductSummary />
+        </Box>
+        <Box display='flex' justifyContent='space-between'>
+          <Box width='48%'>
+            <SelectQuantity />
+          </Box>            
+          <Box width='48%'>
+            <SelectMethod selectMethod={changeMethod} selected={selectedMethod}/>
+            <CustomerInfo />
+            <OrderSummary />
+            <ShipInformation />
+            <BillingAddress />
+            {/* <OrderSummary /> */}
+            <div ref={v => (paypalRef = v)} />
           </Box>
-          <Box display='flex' justifyContent='space-between'>
-            <Box width='48%'>
-              <SelectQuantity />
-            </Box>            
-            <Box width='48%'>
-              <SelectMethod selectMethod={this.changeMethod} selected={this.state.selectedMethod}/>
-              <CustomerInfo />
-              <OrderSummary />
-              <ShipInformation />
-              <BillingAddress />
-              <OrderSummary />
-            </Box>
-          </Box>
-        </Container>
-      </Box>
-    );
-  }
+        </Box>
+      </Container>
+    </Box>
+  );
 }
 
 export default App;
