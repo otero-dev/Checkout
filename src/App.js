@@ -7,6 +7,7 @@ import CustomerInfo from './components/customerInfo';
 import OrderSummary from './components/orderSummary';
 import ShipInformation from './components/shipInformation';
 import BillingAddress from './components/billingAddress';
+import axios from 'axios';
 
 import Nav from './components/navbar';
 
@@ -76,6 +77,13 @@ function App(props){
       }
       setImages(product_images);
     });
+
+    axios.get(`https://unpillow.myshopify.com/admin/products/4640181977174/metafields.json`)
+      .then(res => {
+        const persons = res.data;
+        console.log(persons);
+      })
+    
   }, []);
 
   const changeMethod = (method) => {

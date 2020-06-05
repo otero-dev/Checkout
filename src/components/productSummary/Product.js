@@ -1,5 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState } from 'react';
 import { Box, ProductImage, ProductGallary, GallaryCell } from '../basic'
+
+/**
+ * Product fc component
+ * @param
+ * props: product images 
+ */
 
 const Product = (props) => {
     console.log('images', props.images);
