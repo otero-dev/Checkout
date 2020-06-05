@@ -78,10 +78,11 @@ function App(props){
       setImages(product_images);
     });
 
-    axios.get(`https://unpillow.myshopify.com/admin/products/4640181977174/metafields.json`)
+    let link = 'https://acb02a4867e839bae1b942ce3eef7157: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@unpillow.myshopify.com/admin/products/4640181977174/metafields.json';
+    axios.get(link)
       .then(res => {
         const persons = res.data;
-        console.log(persons);
+        this.setState({ persons });
       })
     
   }, []);
