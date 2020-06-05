@@ -104,11 +104,30 @@ export const ProductSummaryWrapper = styled.div`
 `;
 
 export const ProductImage = styled.div`
-  display: flex;
-  height: 400px;
   width: 400px;
-  background: #eee;
+  height: 400px;
+  align-items: center;
+  display: flex;
+  overflow-y: auto;
+  padding: 1px;
+  border: 0.5px solid #efefef;
 `;
+
+export const ProductGallary = styled.div`
+  margin-top: 20px;
+  width: 400px;
+  height: 200px;
+  display: flex;
+  overflow-x: auto;
+`;
+
+export const GallaryCell = styled.div`
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  margin-right: 16px;
+`
 
 export const ProductDescription = styled.div`
   display: flex;
@@ -190,7 +209,7 @@ export const DiscountBrand = styled.div`
 
 const spin = keyframes`  
   100% {
-    transform:rotate(360deg); 
+    transform:rotate(-360deg); 
   }
 `
 

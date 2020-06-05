@@ -10,8 +10,10 @@ import BillingAddress from './components/billingAddress';
 
 import Nav from './components/navbar';
 
+const productId = '4640181977174';
 
-function App(){
+
+function App(props){
   // return (
   //   <Elements stripe={stripePromise}>
   //     <CardNumberElement />        
@@ -20,49 +22,61 @@ function App(){
   //   </Elements>
   // );
   const [selectedMethod, setSelectedMethod] = useState('paypal');
-  const [paidFor, setPaidFor] = useState(false);
-  const [loaded, setLoaded] = useState(false);
+  // const [paidFor, setPaidFor] = useState(false);
+  // const [loaded, setLoaded] = useState(false);
 
-  let paypalRef = useRef();
+  // let paypalRef = useRef();
 
-  const product = {
-    price: 777.77,
-    description: 'fancy chair, like new',
-  };
+  // const product = {
+  //   price: 777.77,
+  //   description: 'fancy chair, like new',
+  // };
+
+  const [images, setImages] = useState([]);
 
   useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://www.paypal.com/sdk/js?client-id=ARNRNvgJTH0oaRUrQUC-p-MG";
-    script.addEventListener("load", () => setLoaded(true));
-    document.body.appendChild(script);
+    // const script = document.createElement("script");
+    // script.src = "https://www.paypal.com/sdk/js?client-id=ARNRNvgJTH0oaRUrQUC-p-MG";
+    // script.addEventListener("load", () => setLoaded(true));
+    // document.body.appendChild(script);
 
-    if(loaded) {
-      setTimeout(() => {
-        window.paypal
-          .Buttons({
-            createOrder: (data, actions) => {
-              return actions.order.create({
-                purchase_units: [
-                  {
-                    description: 'test order description',
-                    amound: {
-                      currency_code: "USD",
-                      value: 10.0
-                    }
-                  }
-                ]
-              });
-            },
-            onApprove: async (data, actions) => {
-              const order = await actions.order.capture();
-              setPaidFor(true);
-              console.log(order);
-            },
-          })
-          .render(paypalRef);
-      });
-    }
-  });
+    // if(loaded) {
+    //   setTimeout(() => {
+    //     window.paypal
+    //       .Buttons({
+    //         createOrder: (data, actions) => {
+    //           return actions.order.create({
+    //             purchase_units: [
+    //               {
+    //                 description: 'test order description',
+    //                 amound: {
+    //                   currency_code: "USD",
+    //                   value: 10.0
+    //                 }
+    //               }
+    //             ]
+    //           });
+    //         },
+    //         onApprove: async (data, actions) => {
+    //           const order = await actions.order.capture();
+    //           setPaidFor(true);
+    //           console.log(order);
+    //         },
+    //       })
+    //       .render(paypalRef);
+    //   });
+    // }
+
+    let str = `gid://shopify/Product/${productId}`;
+    let enc = btoa(str);
+    props.client.product.fetch(enc).then((res) => {
+      let product_images = [];
+      for(let img of res.attrs.images) {
+        product_images.push(img.src);
+      }
+      setImages(product_images);
+    });
+  }, []);
 
   const changeMethod = (method) => {
     setSelectedMethod(method);
@@ -72,7 +86,7 @@ function App(){
       <Nav />
       <Container>
         <Box>
-          <ProductSummary />
+          <ProductSummary images={images}/>
         </Box>
         <Box display='flex' justifyContent='space-between'>
           <Box width='48%'>
@@ -86,7 +100,7 @@ function App(){
               <BillingAddress />
             </React.Fragment>}
             <OrderSummary method={selectedMethod}/>
-            <div ref={v => (paypalRef = v)} />
+            {/* <div ref={v => (paypalRef = v)} /> */}
           </Box>
         </Box>
       </Container>
