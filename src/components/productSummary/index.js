@@ -7,7 +7,7 @@ import Summary from './Summary';
 const ProductSummary = (props) => {
     return (
         <ProductSummaryWrapper>
-            <Product />
+            <Product images={props.images}/>
             <Summary />
         </ProductSummaryWrapper>
     )

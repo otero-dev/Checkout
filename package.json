@@ -10,6 +10,7 @@
     "react-dom": "^16.13.1",
     "react-scripts": "0.9.x",
     "react-stripe-elements": "^6.1.2",
+    "shopify-buy": "^2.10.0",
     "stripe": "^8.56.0",
     "styled-components": "^5.1.1",
     "styled-system": "^5.1.5"

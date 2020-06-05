@@ -1,11 +1,22 @@
-import React from 'react';
-import { ProductImage } from '../basic'
+import React, {useState, useEffect} from 'react';
+import { Box, ProductImage, ProductGallary, GallaryCell } from '../basic'
 
-const Product = () => {
+const Product = (props) => {
+    console.log('images', props.images);
+    const [selected, SetSelected] = useState(0);
+
     return (
-        <ProductImage>
-            Image Here
-        </ProductImage>
+        <Box>
+            <ProductImage>
+                <img src={props.images[selected]} width='100%'/>
+            </ProductImage>
+            <ProductGallary>
+                {props.images.map((image, index) => <GallaryCell style={{border: `2px solid ${selected===index?'#efefef': '#fff'}`}} onClick={() => SetSelected(index)}>
+                    <img src={image} width='100%'/>
+                </GallaryCell>)}
+            </ProductGallary>
+        </Box>
+        
     )
 }
 
