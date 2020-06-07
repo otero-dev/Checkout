@@ -112,8 +112,13 @@ export const Headline = styled.div`
 `;
 
 export const FeatureLine = styled.div`
-  margin: 15px;
+  margin-left: 15px;
 `
+
+export const FeatureWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
 
 export const ProductImage = styled.div`
   width: 400px;
