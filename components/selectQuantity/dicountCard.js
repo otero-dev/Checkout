@@ -12,7 +12,7 @@ const DiscoundCard = (props) => {
             <Box ml={20} display='flex' alignItems='center' justifyContent='space-between' width="90%">
                 <Box display='flex' alignItems='center'>
                     {props.discount}% OFF: {props.quantity}
-                    <div dangerouslySetInnerHTML={{__html: props.shortName}} />
+                    <Box ml='10px' dangerouslySetInnerHTML={{__html: props.shortName}} />
                 </Box>
                 <Box display='flex' width="105px">
                    <Box dangerouslySetInnerHTML={{__html: props.rightText}}></Box>
