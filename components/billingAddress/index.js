@@ -16,7 +16,7 @@ const BillingAddress = (props) => {
                 <Box>
                     <Box onClick={() => setUseSame(true)} display='flex' height={30} alignItems='center'>
                         {useSame ? <Box width={20} height={20}>
-                            <img src='/static/images/check.png' width='100%' alt="" />
+                            <img src='/images/check.png' width='100%' alt="" />
                         </Box>
                         : <CheckOff />}
                         <Box ml={20}>
@@ -25,7 +25,7 @@ const BillingAddress = (props) => {
                     </Box>
                     <Box onClick={() => setUseSame(false)} display='flex' height={30} alignItems='center'>
                         {!useSame ? <Box width={20} height={20}>
-                            <img src='/static/images/check.png' width='100%' alt="" />
+                            <img src='/images/check.png' width='100%' alt="" />
                         </Box>
                         : <CheckOff />}
                         <Box ml={20}>

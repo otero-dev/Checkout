@@ -1,25 +1,23 @@
 {
-  "name": "web_app",
+  "name": "ultra-checkout",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
   "dependencies": {
     "@stripe/react-stripe-js": "^1.1.2",
-    "@stripe/stripe-js": "^1.6.0",
+    "@stripe/stripe-js": "^1.7.0",
     "axios": "^0.19.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "0.9.x",
-    "react-stripe-elements": "^6.1.2",
+    "btoa": "^1.2.1",
+    "next": "9.4.4",
+    "node-fetch": "^2.6.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
     "shopify-buy": "^2.10.0",
-    "stripe": "^8.56.0",
     "styled-components": "^5.1.1",
     "styled-system": "^5.1.5"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
   }
 }

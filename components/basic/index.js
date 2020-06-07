@@ -36,7 +36,6 @@ import {
   minHeight,
   maxHeight,
   size,
-  ratio,
 } from 'styled-system';
 import styled, {keyframes} from 'styled-components';
 
@@ -78,7 +77,6 @@ export const Box = styled.div`
   ${minHeight}
   ${maxHeight}
   ${size}
-  ${ratio}  
 `;
 
 export const Container = styled.div`

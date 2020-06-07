@@ -5,7 +5,7 @@ const CreditItem = (props) => {
     return (
         <MenuItem onClick={() => props.selectMethod('credit')}>            
             {props.selected==='credit' ? <Box width={20} height={20}>
-                <img src='/static/images/check.png' width='100%' alt="" />
+                <img src='/images/check.png' width='100%' alt="" />
             </Box>
             : <CheckOff />}
             
@@ -15,19 +15,19 @@ const CreditItem = (props) => {
                 </Box>
                 <Box display='flex' ml={220}>
                     <Box width={40} mr={2}>
-                        <img src='/static/images/express_card.svg' width='100%' alt="" />
+                        <img src='/images/express_card.svg' width='100%' alt="" />
                     </Box>
 
                     <Box width={40} mr={2}>
-                        <img src='/static/images/master_card.svg' width='100%' alt="" />
+                        <img src='/images/master_card.svg' width='100%' alt="" />
                     </Box>
 
                     <Box width={40} mr={2}>
-                        <img src='/static/images/visa_card.svg' width='100%' alt="" />
+                        <img src='/images/visa_card.svg' width='100%' alt="" />
                     </Box>
 
                     <Box width={40} mr={2}>
-                        <img src='/static/images/discover_card.svg' width='100%' alt="" />
+                        <img src='/images/discover_card.svg' width='100%' alt="" />
                     </Box>
                 </Box>
             </Box>
