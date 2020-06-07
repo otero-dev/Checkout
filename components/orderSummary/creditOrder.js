@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Box, Card } from '../basic';
+import { Box, Card, InputField } from '../basic';
 import OrderBump from './orderBump';
 
 const CreditOrder = (props) => {
