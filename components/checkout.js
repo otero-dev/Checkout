@@ -20,7 +20,7 @@ const CheckOutPage = (props) => {
       <Nav />
       <Container>
         <Box>
-          <ProductSummary images={props.images}/>
+          <ProductSummary {...props}/>
         </Box>
         <Box display='flex' justifyContent='space-between'>
           <Box width='48%'>

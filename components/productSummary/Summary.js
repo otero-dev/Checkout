@@ -1,31 +1,37 @@
 import React from 'react';
-import { Box } from '../basic'
+import { Box, Headline, FeatureLine } from '../basic'
+
+const getHtmlString = (value) => {
+    var obj = JSON.parse(value);
+    return obj.html;
+}
 
 const Summary = (props) => {
-    const headline = props.headline ? props.headline : 'Stop Putting Off Your Dream Home Upgrades - Here’s the DIY way Americans are Transforming their Yards During Quarantine'    
+    let tmp_headline = '', tmp_features = [];
+    if(props.metadata.length > 0) {
+        props.metadata.map(field => {
+            if(field.key === 'headline') tmp_headline = field.value;
+            if(field.key === 'feature_1') tmp_features[0] = field.value;
+            if(field.key === 'feature_2') tmp_features[1] = field.value;
+            if(field.key === 'feature_3') tmp_features[2] = field.value;
+            if(field.key === 'feature_4') tmp_features[3] = field.value;
+        })        
+        tmp_headline = getHtmlString(tmp_headline);
+        tmp_features[0] = getHtmlString(tmp_features[0]);
+        tmp_features[1] = getHtmlString(tmp_features[1]);
+        tmp_features[2] = getHtmlString(tmp_features[2]);
+        tmp_features[3] = getHtmlString(tmp_features[3]);
+    };   
+    
+    const headline = tmp_headline;
+    const features = tmp_features;
+    
     return (
         <Box width={'50%'} m='auto'>
-            <Box m={1} display='flex' justifyContent='center'>
-                <h1 style={{textAlign: 'center'}}>
-                    {headline}
-                </h1>
-            </Box>
-            
-            <Box m={'15px'}>
-                Now is the Perfect Time to Turn Dark Yards into Stunning Outdoor Spaces with PathBright            
-            </Box>
-
-            <Box m={'15px'}>
-                Super Easy to Use - Just Stick it into the Ground and Enjoy Your Transformed Yard at Night            
-            </Box>
-
-            <Box m={'15px'}>
-                Installs in Minutes - No Untangling Wires, Replacing Batteries, or Spending Money on Professional Help            
-            </Box>
-
-            <Box m={'15px'}>
-                Solar Powered - Can Save Money on Your Power Bill by Using the Sun’s Free Energy            
-            </Box>
+            <Headline dangerouslySetInnerHTML={{__html: headline}} />
+            {features.length > 0 && <React.Fragment>
+                {features.map(feature => <FeatureLine dangerouslySetInnerHTML={{__html: feature}} />)}
+            </React.Fragment>}
         </Box>
     )
 }

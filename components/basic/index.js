@@ -101,6 +101,20 @@ export const ProductSummaryWrapper = styled.div`
   background: #fff;
 `;
 
+export const Headline = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+
+  & h1 {
+    text-align: center;
+  }
+`;
+
+export const FeatureLine = styled.div`
+  margin: 15px;
+`
+
 export const ProductImage = styled.div`
   width: 400px;
   height: 400px;
@@ -114,7 +128,6 @@ export const ProductImage = styled.div`
 export const ProductGallary = styled.div`
   margin-top: 20px;
   width: 400px;
-  height: 200px;
   display: flex;
   overflow-x: auto;
 `;
@@ -240,5 +253,3 @@ export const DiscountDescription = styled.div`
     line-height: 140%;
   }
 `;
-
-
