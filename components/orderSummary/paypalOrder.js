@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { Box, Card, InputField } from '../basic';
 import OrderBump from './orderBump';
+import SecurityLogo from './securityLogo';
 
 const PaypalOrder = (props) => {
     const [selected, setSelected] = useState(false);
@@ -19,6 +20,9 @@ const PaypalOrder = (props) => {
                 </Box>
                 <Box>
                     <InputField placeholder='enter' />
+                </Box>
+                <Box>
+                    <SecurityLogo {...props} />
                 </Box>
             </Card>
         </Box>
