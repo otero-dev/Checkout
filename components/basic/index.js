@@ -82,7 +82,7 @@ export const Box = styled.div`
 `;
 
 export const Container = styled.div`
-  width: 65%;
+  width: 60%;
   margin: auto;
 `;
 
@@ -97,9 +97,10 @@ export const NavBar = styled.div`
 export const ProductSummaryWrapper = styled.div`
   margin-top: 10px;
   min-height: 200px;
-  padding: 40px;
+  padding: 30px;
   border: 2px dashed black;
   display: flex;
+  justify-content: space-between;
   background: #fff;
 `;
 
@@ -128,8 +129,6 @@ export const ProductImage = styled.div`
   align-items: center;
   display: flex;
   overflow-y: auto;
-  padding: 1px;
-  border: 0.5px solid #efefef;
 `;
 
 export const ProductGallary = styled.div`
@@ -148,10 +147,7 @@ export const GallaryCell = styled.div`
 `
 
 export const ProductDescription = styled.div`
-  display: flex;
-  height: 400px;
-  width: 400px;
-  background: #efefef;
+  width: 50%;
 `;
 
 
@@ -193,6 +189,7 @@ export const DiscountMenuItem = styled.div`
   align-items: center;
   cursor: pointer;
   padding: 10px;
+  border-radius: 5px;
   &:hover {
     background: #efefef;
   }

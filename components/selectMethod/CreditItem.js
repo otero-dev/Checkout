@@ -9,11 +9,11 @@ const CreditItem = (props) => {
             </Box>
             : <CheckOff />}
             
-            <Box ml={20} display='flex' alignItems='center'>
+            <Box ml={20} display='flex' justifyContent='space-between' width='90%'>
                 <Box>
                     <h3>Credit Card</h3>
                 </Box>
-                <Box display='flex' ml={220}>
+                <Box display='flex'>
                     <Box width={40} mr={2}>
                         <img src='/images/express_card.svg' width='100%' alt="" />
                     </Box>

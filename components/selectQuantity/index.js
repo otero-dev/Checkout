@@ -54,7 +54,7 @@ const SelectQuantity = (props) => {
     return (
         <Box mt={20}>
             <Card>
-                <Box display='flex'>
+                <Box display='flex' alignItems='center'>
                     {/* <DiscountBrand>
                         <DiscoundDash />
                         <Box>
@@ -62,7 +62,7 @@ const SelectQuantity = (props) => {
                             <Box>OFF</Box>
                         </Box>
                     </DiscountBrand> */}
-                    <Box height='100px'>
+                    <Box height='120px'>
                         <img src={discount_icon} height='100%'/>
                     </Box>
                     <DiscountDescription>

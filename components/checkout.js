@@ -10,13 +10,13 @@ import BillingAddress from './billingAddress';
 import Nav from './navbar';
 
 const CheckOutPage = (props) => {
-  const [selectedMethod, setSelectedMethod] = useState('paypal');
+  const [selectedMethod, setSelectedMethod] = useState('');
 
   const changeMethod = (method) => {
     setSelectedMethod(method);
   }  
   return (
-    <Box pb={10}>
+    <Box pb={10} background='#efefef'>
       <Nav />
       <Container>
         <Box>
@@ -28,13 +28,15 @@ const CheckOutPage = (props) => {
           </Box>            
           <Box width='48%'>
             <SelectMethod selectMethod={changeMethod} selected={selectedMethod}/>
-            <CustomerInfo />
-            {selectedMethod === 'credit' && <React.Fragment>
-              <ShipInformation />
-              <BillingAddress />
+            { selectedMethod !== '' && <React.Fragment>
+              <CustomerInfo />
+              {selectedMethod === 'credit' && <React.Fragment>
+                <ShipInformation />
+                <BillingAddress />
+              </React.Fragment>}
+              <OrderSummary method={selectedMethod} {...props}/>
+              {/* <div ref={v => (paypalRef = v)} /> */}
             </React.Fragment>}
-            <OrderSummary method={selectedMethod} {...props}/>
-            {/* <div ref={v => (paypalRef = v)} /> */}
           </Box>
         </Box>
       </Container>

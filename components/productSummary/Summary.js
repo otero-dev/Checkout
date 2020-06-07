@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, Headline, FeatureLine, FeatureWrapper } from '../basic'
+import { Box, Headline, FeatureLine, FeatureWrapper, ProductDescription } from '../basic'
 import { getValueFromObjectString, getValueFromString } from '../../utils/metafields';
 
 
@@ -29,7 +29,7 @@ const Summary = (props) => {
     const bullet_url = tmp_bullet;
     
     return (
-        <Box width={'50%'} m='auto'>
+        <ProductDescription>
             <Headline dangerouslySetInnerHTML={{__html: headline}} />
             {features.length > 0 && <React.Fragment>
                 {features.map(feature =><FeatureWrapper>
@@ -39,7 +39,7 @@ const Summary = (props) => {
                     <FeatureLine dangerouslySetInnerHTML={{__html: feature}} />
                 </FeatureWrapper>)}
             </React.Fragment>}
-        </Box>
+        </ProductDescription>
     )
 }
 
