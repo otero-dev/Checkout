@@ -1,0 +1,11 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Noto Sans", sans-serif;
+    color: #323232;
+    background-color: white;
+    -webkit-font-smoothing: subpixel-antialiased;
+    overflow: auto;
+    overflow-x: hidden;
+    max-width: 100%;
+  }

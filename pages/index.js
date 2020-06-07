@@ -19,7 +19,9 @@ const Index = (props) => {
   }, []);
 
   return (
-    <CheckOutPage images={images} metadata={metafields}/>
+    <React.Fragment>
+      {metafields.length > 0 ? <CheckOutPage images={images} metadata={metafields}/> : <div />}
+    </React.Fragment>
   )
 }
 

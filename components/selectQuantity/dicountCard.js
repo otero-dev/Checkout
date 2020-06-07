@@ -3,7 +3,7 @@ import { Box, CheckOff, DiscountMenuItem } from '../basic';
 
 const DiscoundCard = (props) => {
     return (
-        <DiscountMenuItem onClick={() => props.selectOrder(props.index)}>
+        <DiscountMenuItem onClick={() => props.selectOrder(props.index)} style={{background: `${props.index===2 ? '#ffbd03' : 'white'}`}}>
             {props.active ? <Box width={20} height={20}>
                 <img src='/images/check.png' width='100%' alt="" />
             </Box>
