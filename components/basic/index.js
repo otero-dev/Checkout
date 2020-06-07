@@ -35,6 +35,7 @@ import {
   maxWidth,
   minHeight,
   maxHeight,
+  textAlign,
   size,
 } from 'styled-system';
 import styled, {keyframes} from 'styled-components';
@@ -77,6 +78,7 @@ export const Box = styled.div`
   ${minHeight}
   ${maxHeight}
   ${size}
+  ${textAlign}
 `;
 
 export const Container = styled.div`
@@ -159,6 +161,15 @@ export const Card = styled.div`
   background: #fff;
   border-radius: 5px;
   border: 1px solid #ccc;
+`;
+
+export const BumpCard = styled.div`
+  padding: 15px;
+  background: whitesmoke;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  justify-content: center;
+  cursor: pointer;
 `;
 
 export const CheckOff = styled.div`
