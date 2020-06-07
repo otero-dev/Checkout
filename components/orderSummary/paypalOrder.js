@@ -1,7 +1,12 @@
-import React from 'react';
-import { Box, Card } from '../basic';
+import React, {useState} from 'react';
+import { Box, Card, InputField } from '../basic';
+import OrderBump from './orderBump';
 
 const PaypalOrder = (props) => {
+    const [selected, setSelected] = useState(false);
+    const checkBump = (value) => {
+        setSelected(!value);
+    }
     return (
         <Box mt={20}>
             <Card>
@@ -10,7 +15,10 @@ const PaypalOrder = (props) => {
                 </Box>
                 <hr />
                 <Box>
-
+                    <OrderBump {...props} active={selected} checkBump={checkBump}/>
+                </Box>
+                <Box>
+                    <InputField placeholder='enter' />
                 </Box>
             </Card>
         </Box>

@@ -14,7 +14,7 @@ const DiscoundCard = (props) => {
                     {props.discount}% OFF: {props.quantity}
                     <Box ml='10px' dangerouslySetInnerHTML={{__html: props.shortName}} />
                 </Box>
-                <Box display='flex' width="105px">
+                <Box display='flex' width="130px">
                    <Box dangerouslySetInnerHTML={{__html: props.rightText}}></Box>
                 </Box>
             </Box>

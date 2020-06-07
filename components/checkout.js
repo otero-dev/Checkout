@@ -33,7 +33,7 @@ const CheckOutPage = (props) => {
               <ShipInformation />
               <BillingAddress />
             </React.Fragment>}
-            <OrderSummary method={selectedMethod}/>
+            <OrderSummary method={selectedMethod} {...props}/>
             {/* <div ref={v => (paypalRef = v)} /> */}
           </Box>
         </Box>

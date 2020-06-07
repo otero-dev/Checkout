@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
 import { Box, Card, DiscountBrand, DiscoundDash, DiscountDescription } from '../basic';
-import { getValueFromObjectString, getValueFromString } from '../../utils/metafields';
+import { getValueFromString } from '../../utils/metafields';
 import DiscoundCard from './dicountCard';
 
 const SelectQuantity = (props) => {
     let tmp_offer_discount = [], tmp_offer_quantity = [], tmp_right_text, tmp_short_name;
-    console.log('test', props.metadata)
     if(props.metadata.length > 0) {
         props.metadata.map(field => {
             if(field.key === 'offer_discount_1') tmp_offer_discount[0] = field.value;
