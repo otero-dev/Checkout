@@ -1,10 +1,17 @@
 import React, {useState} from 'react';
 import { Box, Card, DiscountBrand, DiscoundDash, DiscountDescription } from '../basic';
-import { getValueFromString } from '../../utils/metafields';
+import { getValueFromString, getValueFromObjectString } from '../../utils/metafields';
 import DiscoundCard from './dicountCard';
 
 const SelectQuantity = (props) => {
-    let tmp_offer_discount = [], tmp_offer_quantity = [], tmp_right_text, tmp_short_name;
+    let tmp_offer_discount = [], 
+        tmp_offer_quantity = [], 
+        tmp_right_text = '',
+        tmp_short_name = '',
+        tmp_discount_headline = '',
+        tmp_discount_icon = '',
+        tmp_discount_subline = '';
+
     if(props.metadata.length > 0) {
         props.metadata.map(field => {
             if(field.key === 'offer_discount_1') tmp_offer_discount[0] = field.value;
@@ -21,6 +28,10 @@ const SelectQuantity = (props) => {
 
             if(field.key === 'offer_right_text') tmp_right_text = getValueFromString(field.value, 'html');
             if(field.key === 'product_shortname') tmp_short_name = getValueFromString(field.value, 'html');
+            
+            if(field.key === 'discount_headline') tmp_discount_headline = getValueFromString(field.value, 'html');            
+            if(field.key === 'discount_subheadline') tmp_discount_subline = getValueFromString(field.value, 'html');
+            if(field.key === 'discount_icon') tmp_discount_icon = getValueFromObjectString(field.value, 'src');
         })
     };
 
@@ -29,6 +40,10 @@ const SelectQuantity = (props) => {
     const offer_quantity = tmp_offer_quantity; 
     const right_text = tmp_right_text;
     const short_name = tmp_short_name;
+
+    const discount_headline = tmp_discount_headline;
+    const discount_subheadline = tmp_discount_subline;
+    const discount_icon = tmp_discount_icon;
 
     const [nIndex, setNIndex] = useState(0);
 
@@ -40,20 +55,19 @@ const SelectQuantity = (props) => {
         <Box mt={20}>
             <Card>
                 <Box display='flex'>
-                    <DiscountBrand>
+                    {/* <DiscountBrand>
                         <DiscoundDash />
                         <Box>
                             <Box>{'55%'}</Box>
                             <Box>OFF</Box>
                         </Box>
-                    </DiscountBrand>
+                    </DiscountBrand> */}
+                    <Box height='100px'>
+                        <img src={discount_icon} height='100%'/>
+                    </Box>
                     <DiscountDescription>
-                        <h3>
-                            <p>{`Your 55% Discount Has Been Applied`}</p>
-                        </h3>
-                        <h4>
-                            <p>All Orders above $50 get <strong>FREE SHIPPING</strong> When Ordered TODAY</p>
-                        </h4>
+                        <Box dangerouslySetInnerHTML={{__html: discount_headline}} />
+                        <Box dangerouslySetInnerHTML={{__html: discount_subheadline}} />
                     </DiscountDescription>
                 </Box>
                 <Box>
