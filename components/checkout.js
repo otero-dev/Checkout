@@ -24,7 +24,7 @@ const CheckOutPage = (props) => {
         </Box>
         <Box display='flex' justifyContent='space-between'>
           <Box width='48%'>
-            <SelectQuantity />
+            <SelectQuantity {...props}/>
           </Box>            
           <Box width='48%'>
             <SelectMethod selectMethod={changeMethod} selected={selectedMethod}/>
