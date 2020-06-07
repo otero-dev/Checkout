@@ -1,20 +1,13 @@
 import React from 'react';
+
 import { Box, Headline, FeatureLine, FeatureWrapper } from '../basic'
+import { getValueFromObjectString, getValueFromString } from '../../utils/metafields';
 
-const getValueFromString = (value, key) => {
-    var obj = JSON.parse(value);
-    return obj[key];
-}
 
-const getValueFromObjectString = (value, key) => {
-    var obj = JSON.parse(value);
-    return obj[0][key];
-}
 
 const Summary = (props) => {
     let tmp_headline = '', tmp_features = [], tmp_bullet = '';
     if(props.metadata.length > 0) {
-        console.log(props.metadata);
         props.metadata.map(field => {
             if(field.key === 'headline') tmp_headline = field.value;
             if(field.key === 'feature_1') tmp_features[0] = field.value;

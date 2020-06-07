@@ -176,6 +176,17 @@ export const MenuItem = styled.div`
   cursor: pointer;
 `;
 
+export const DiscountMenuItem = styled.div`
+  height: 70px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+  &:hover {
+    background: #efefef;
+  }
+`;
+
 // Custom Input Field
 export const InputField = styled.input`
   width: calc(100% - 35.2px);
