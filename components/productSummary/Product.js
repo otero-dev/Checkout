@@ -8,7 +8,6 @@ import { Box, ProductImage, ProductGallary, GallaryCell } from '../basic'
  */
 
 const Product = (props) => {
-    console.log('images', props.images);
     const [selected, SetSelected] = useState(0);
 
     return (

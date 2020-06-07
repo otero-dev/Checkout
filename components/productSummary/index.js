@@ -13,7 +13,7 @@ const ProductSummary = (props) => {
     return (
         <ProductSummaryWrapper>
             <Product {...props}/>
-            <Summary />
+            <Summary metadata={props.metadata}/>
         </ProductSummaryWrapper>
     )
 }
