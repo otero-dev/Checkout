@@ -19,9 +19,9 @@ const CheckOutPage = (props) => {
     <Box pb={10} background='#efefef'>
       <Nav />
       <Container>
-        <Box>
-          <ProductSummary {...props}/>
-        </Box>
+        
+        <ProductSummary {...props}/>
+        
         <Box display='flex' justifyContent='space-between'>
           <Box width='48%'>
             <SelectQuantity {...props}/>

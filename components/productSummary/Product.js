@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, ProductImage, ProductGallary, GallaryCell } from '../basic'
+import { Box, ProductImage, ProductOverview,  ProductGallary, GallaryCell } from '../basic'
 
 /**
  * Product fc component
@@ -11,7 +11,7 @@ const Product = (props) => {
     const [selected, SetSelected] = useState(0);
 
     return (
-        <Box>
+        <ProductOverview>
             <ProductImage>
                 <img src={props.images[selected]} width='100%'/>
             </ProductImage>
@@ -20,7 +20,7 @@ const Product = (props) => {
                     <img src={image} width='100%'/>
                 </GallaryCell>)}
             </ProductGallary>
-        </Box>
+        </ProductOverview>
         
     )
 }
