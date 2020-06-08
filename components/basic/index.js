@@ -423,3 +423,24 @@ export const CardPayButton = styled.button`
       background-color: #159324;
     }
 `
+
+export const PaypalButton = styled.button`
+    transition: all 300ms ease-out;
+    width: 100%;
+    height: 50px;
+    background-color: #ffbd03;
+    border-radius: 5px;
+    margin: 17.6px auto 0 auto;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    &:hover {
+      background-color: #e9ac00;
+    }
+`;
