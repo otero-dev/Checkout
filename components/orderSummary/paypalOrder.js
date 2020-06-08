@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Box, Card, InputField } from '../basic';
+import { Box, Card, InputField, PaypalButton } from '../basic';
 import OrderBump from './orderBump';
 import SecurityLogo from './securityLogo';
 
@@ -20,6 +20,14 @@ const PaypalOrder = (props) => {
                 </Box>
                 <Box>
                     <InputField placeholder='enter' />
+                </Box>
+                <Box>
+                    <PaypalButton>
+                        <Box>CHECKOUT WITH</Box>
+                        <Box>
+                            <img src='/images/paypal.svg' height={40} alt="" />
+                        </Box>
+                    </PaypalButton>
                 </Box>
                 <Box>
                     <SecurityLogo {...props} />
