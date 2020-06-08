@@ -172,6 +172,22 @@ export const ProductDescription = styled.div`
 `;
 
 
+export const Wrapper = styled.div`
+  width: 48%;
+  @media only screen and (max-width: 1024px) {
+    width: 100%;
+  };
+`;
+
+export const SuperWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  @media only screen and (max-width: 1024px) {
+    display: block;
+  };
+`;
+
+
 // Select Quantity
 export const Card = styled.div`
   padding: 15px;  
@@ -212,6 +228,7 @@ export const MenuItem = styled.div`
   align-items: center;
   cursor: pointer;
 `;
+
 
 export const DiscountMenuItem = styled.div`
   height: 70px;

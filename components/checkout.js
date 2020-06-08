@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useRef} from 'react';
-import { Container, Box } from './basic';
+import { Container, Box, Wrapper, SuperWrapper } from './basic';
 import ProductSummary from './productSummary';
 import SelectQuantity from './selectQuantity';
 import SelectMethod from './selectMethod';
@@ -22,11 +22,11 @@ const CheckOutPage = (props) => {
         
         <ProductSummary {...props}/>
         
-        <Box display='flex' justifyContent='space-between'>
-          <Box width='48%'>
+        <SuperWrapper>
+          <Wrapper>
             <SelectQuantity {...props}/>
-          </Box>            
-          <Box width='48%'>
+          </Wrapper>            
+          <Wrapper>
             <SelectMethod selectMethod={changeMethod} selected={selectedMethod}/>
             { selectedMethod !== '' && <React.Fragment>
               <CustomerInfo />
@@ -37,8 +37,8 @@ const CheckOutPage = (props) => {
               <OrderSummary method={selectedMethod} {...props}/>
               {/* <div ref={v => (paypalRef = v)} /> */}
             </React.Fragment>}
-          </Box>
-        </Box>
+          </Wrapper>
+        </SuperWrapper>
       </Container>
     </Box>
   );
