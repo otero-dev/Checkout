@@ -147,6 +147,9 @@ export const ProductImage = styled.div`
   align-items: center;
   display: flex;
   overflow-y: auto;
+  @media only screen and (max-width: 1024px) {
+    width: 100%;
+  };
 `;
 
 export const ProductGallary = styled.div`
@@ -154,6 +157,9 @@ export const ProductGallary = styled.div`
   width: 400px;
   display: flex;
   overflow-x: auto;
+  @media only screen and (max-width: 1024px) {
+    width: 100%;
+  };
 `;
 
 export const GallaryCell = styled.div`
