@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Box, Card, InputField, SelectBox, CheckOff, CheckOn } from '../basic';
 
 const BillingAddress = (props) => {
-    const [useSame, setUseSame] = useState(false);
+    const [useSame, setUseSame] = useState(true);
     useEffect(() => {
         console.log('useSame', useSame);
     }, [useSame])
