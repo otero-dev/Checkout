@@ -2,12 +2,30 @@ import React, {useState} from 'react';
 import { Box, Card, InputField, CreditOrderDetail, CreditOrderShip, CreditOrderTotal, CardPayButton } from '../basic';
 import OrderBump from './orderBump';
 import SecurityLogo from './securityLogo';
+import { getValueFromString } from '../../utils/metafields';
 
 const CreditOrder = (props) => {
+    let tmp_button_text = '', tmp_button_text_color, tmp_button_color;
+
+    if(props.metadata.length > 0) {
+        props.metadata.map(field => {
+            if(field.key === 'button_text') tmp_button_text = getValueFromString(field.value, 'html');
+            if(field.key === 'button_text_color') tmp_button_text_color = field.value;
+            if(field.key === 'button_color') tmp_button_text = field.value;
+        })
+    };
+
+    const button_text = tmp_button_text;
+    const button_text_color = tmp_button_text_color;
+    const button_color = tmp_button_color;
+
     const [selected, setSelected] = useState(false);
     const checkBump = (value) => {
         setSelected(!value);
     }
+
+
+
     return (
         <Box mt={20}>
             <Card>
@@ -58,8 +76,8 @@ const CreditOrder = (props) => {
                     </CreditOrderTotal>
                 </Box>
                 <Box>
-                    <CardPayButton>
-                        Yes! Send me my Flamebrites!
+                    <CardPayButton style={{backgroundColor: button_color, color: button_text_color}}>
+                        <div dangerouslySetInnerHTML={{__html: button_text}} />
                     </CardPayButton>
                 </Box>
                 <Box mt='17.6px'>
