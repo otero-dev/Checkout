@@ -204,6 +204,9 @@ export const BumpCard = styled.div`
   border: 1px solid #ccc;
   justify-content: center;
   cursor: pointer;
+  &:hover {
+    border: 1px solid #777;
+  }
 `;
 
 export const CheckOff = styled.div`
@@ -371,3 +374,52 @@ export const SSLLogo = styled.div`
     display: none;
   }; 
 `;
+
+export const CreditOrderDetail = styled.div`
+    display: flex;
+    align-items: center;
+    padding: 18px 5px 18px 10px;
+    border-radius: 5px;
+    justify-content: space-between;
+`;
+
+export const CreditOrderShip = styled.div`
+    display: flex;
+    align-items: center;
+    padding: 18px 5px 18px 10px;
+    border-radius: 5px 5px 0 0;
+    justify-content: space-between;
+    background: whitesmoke;
+`;
+
+export const CreditOrderTotal = styled.div`
+    display: flex;
+    align-items: center;
+    padding: 18px 5px 18px 10px;
+    border-radius: 0 0 5px 5px;
+    justify-content: space-between;
+    background: whitesmoke;
+`;
+
+export const CardPayButton = styled.button`
+    transition: all 600ms cubic-bezier(0, 0.3, 0.7, 1);
+    background-color: #1ab22c;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    font-weight: bold;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    line-height: 150%;
+    height: initial;
+    padding: 13.1px;
+    margin-top: 17.6px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    &:hover {
+      background-color: #159324;
+    }
+`
