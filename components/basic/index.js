@@ -84,6 +84,10 @@ export const Box = styled.div`
 export const Container = styled.div`
   width: 60%;
   margin: auto;
+
+  @media only screen and (max-width: 1024px) {
+     width: 100%;
+  }
 `;
 
 export const NavBar = styled.div`
@@ -91,6 +95,10 @@ export const NavBar = styled.div`
   height: 80px;
   width: 100%;
   background: #fff;
+
+  @media only screen and (max-width: 1024px) {
+    width: 100%;
+  }
 `;
 
 // product summary 
@@ -102,7 +110,17 @@ export const ProductSummaryWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   background: #fff;
+  @media only screen and (max-width: 1024px) {
+    display: block;
+  }
 `;
+
+export const ProductOverview = styled.div`
+  width: 50%;
+  @media only screen and (max-width: 1024px) {
+    width: 100%;
+  };
+`
 
 export const Headline = styled.div`
   display: flex;
@@ -148,6 +166,9 @@ export const GallaryCell = styled.div`
 
 export const ProductDescription = styled.div`
   width: 50%;
+  @media only screen and (max-width: 1024px) {
+    width: 100%;
+  };
 `;
 
 
