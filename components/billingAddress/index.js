@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Card, InputField, SelectBox, CheckOff } from '../basic';
+import { Box, Card, InputField, SelectBox, CheckOff, CheckOn } from '../basic';
 
 const BillingAddress = (props) => {
     const [useSame, setUseSame] = useState(false);
@@ -15,18 +15,18 @@ const BillingAddress = (props) => {
                 <hr />
                 <Box>
                     <Box onClick={() => setUseSame(true)} display='flex' height={30} alignItems='center'>
-                        {useSame ? <Box width={20} height={20}>
-                            <img src='/images/check.png' width='100%' alt="" />
-                        </Box>
+                        {useSame ? <CheckOn>
+                            <img src='/images/check.svg' width='100%' alt=""/>
+                        </CheckOn>
                         : <CheckOff />}
                         <Box ml={20}>
                             Same as shipping address
                         </Box>
                     </Box>
                     <Box onClick={() => setUseSame(false)} display='flex' height={30} alignItems='center'>
-                        {!useSame ? <Box width={20} height={20}>
-                            <img src='/images/check.png' width='100%' alt="" />
-                        </Box>
+                        {!useSame ? <CheckOn>
+                            <img src='/images/check.svg' width='100%' alt=""/>
+                        </CheckOn>
                         : <CheckOff />}
                         <Box ml={20}>
                             Use a different billing address
