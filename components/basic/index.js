@@ -210,6 +210,7 @@ export const CheckOff = styled.div`
   height: 16px;
   border-radius: 50%;
   border: 1.5px solid #172969;
+  position: relative;
 `;
 
 export const CheckOn = styled.div`
@@ -217,7 +218,31 @@ export const CheckOn = styled.div`
   height: 16px;
   border-radius: 50%;
   background: #172969;
-  border: 1.5px solid #172969;  
+  border: 1.5px solid #172969;
+  position: relative;
+`;
+
+const bump = keyframes`  
+  0% {
+    left: -40px;
+  }
+  10% {
+    left: -50px;
+  }
+
+  18% {
+    left: -34px;
+  }
+  25% {
+    left: -40px;
+  }
+`
+
+export const Arrow = styled.div`
+  position: absolute;
+  top: -3px;
+  left: -40px;
+  animation: ${bump} 3s infinite;
 `;
 
 
