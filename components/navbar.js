@@ -2,7 +2,7 @@ import React from 'react';
 
 import ReactCountryFlag from "react-country-flag"
 
-import { Box, NavBar, Container } from './basic'
+import { Box, NavBar, Container, ContactUs, StoreLogo, SSLLogo } from './basic'
 import { getValueFromObjectString, getValueFromString } from '../utils/metafields';
 
 const Nav = (props) => {
@@ -27,14 +27,14 @@ const Nav = (props) => {
         <NavBar>
             <Container>
                 <Box display='flex' justifyContent='space-between' alignItems='center'>
-                    <Box display='flex' justifyContent='space-between' width='60%' alignItems='center'> 
-                        <Box>
+                    <StoreLogo> 
+                        <Box ml={20}>
                             <img src={store_logo} alt='' />
                         </Box>
-                        <Box>
+                        <SSLLogo>
                             <img src={ssl_logo} alt='' />
-                        </Box>
-                    </Box>
+                        </SSLLogo>
+                    </StoreLogo>
                     <Box display='flex' width='30%' alignItems='center' justifyContent=''>
                         <Box>
                             <ReactCountryFlag
@@ -48,10 +48,10 @@ const Nav = (props) => {
                                 title="US"
                             />
                         </Box>
-                        <Box textAlign='center' ml='10px'>
+                        <ContactUs>
                             <Box dangerouslySetInnerHTML={{__html: contact_text}} />
                             <Box dangerouslySetInnerHTML={{__html: contact_email}} />
-                        </Box>
+                        </ContactUs>
                     </Box>
                 </Box>
             </Container>

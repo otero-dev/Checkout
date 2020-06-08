@@ -182,6 +182,7 @@ export const Wrapper = styled.div`
 export const SuperWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  
   @media only screen and (max-width: 1024px) {
     display: block;
   };
@@ -221,30 +222,6 @@ export const CheckOn = styled.div`
   border: 1.5px solid #172969;
   position: relative;
 `;
-
-const bump = keyframes`  
-  0% {
-    left: -40px;
-  }
-  10% {
-    left: -50px;
-  }
-
-  18% {
-    left: -34px;
-  }
-  25% {
-    left: -40px;
-  }
-`
-
-export const Arrow = styled.div`
-  position: absolute;
-  top: -3px;
-  left: -40px;
-  animation: ${bump} 3s infinite;
-`;
-
 
 export const MenuItem = styled.div`
   height: 70px;
@@ -348,4 +325,49 @@ export const DiscountDescription = styled.div`
     margin: 8.8px 0 0 0;
     line-height: 140%;
   }
+`;
+
+const bump = keyframes`  
+  0% {
+    left: -40px;
+  }
+  10% {
+    left: -50px;
+  }
+
+  18% {
+    left: -34px;
+  }
+  25% {
+    left: -40px;
+  }
+`
+
+export const Arrow = styled.div`
+  position: absolute;
+  top: -3px;
+  left: -40px;
+  animation: ${bump} 3s infinite;
+`;
+
+export const ContactUs = styled.div`
+  text-align: center;
+  margin-left: 10px;
+  
+  @media only screen and (max-width: 1024px) {
+    display: none;
+  };
+`
+
+export const StoreLogo = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  align-items: center;  
+`;
+
+export const SSLLogo = styled.div`
+  @media only screen and (max-width: 1024px) {
+    display: none;
+  }; 
 `;
