@@ -425,6 +425,9 @@ export const CardPayButton = styled.button`
     width: 100%;
     border-radius: 5px;
     border: none;
+    & p {
+      margin: 0;
+    }
     &:hover {
       background-color: #159324;
     }
