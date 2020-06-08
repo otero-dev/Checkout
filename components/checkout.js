@@ -17,7 +17,7 @@ const CheckOutPage = (props) => {
   }  
   return (
     <Box pb={10} background='#efefef'>
-      <Nav />
+      <Nav {...props}/>
       <Container>
         
         <ProductSummary {...props}/>
