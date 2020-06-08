@@ -172,8 +172,17 @@ export const CheckOff = styled.div`
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  border: 2px solid black;
+  border: 1.5px solid #172969;
 `;
+
+export const CheckOn = styled.div`
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #172969;
+  border: 1.5px solid #172969;  
+`;
+
 
 export const MenuItem = styled.div`
   height: 70px;

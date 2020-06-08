@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, CheckOff } from '../basic';
+import { Box } from '../basic';
 
 import { getValueFromObjectString, getValueFromString } from '../../utils/metafields';
 

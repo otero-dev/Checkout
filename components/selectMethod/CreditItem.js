@@ -1,12 +1,12 @@
 import React from 'react';
-import { Box, CheckOff, MenuItem } from '../basic';
+import { Box, CheckOff, MenuItem, CheckOn } from '../basic';
 
 const CreditItem = (props) => {    
     return (
         <MenuItem onClick={() => props.selectMethod('credit')}>            
-            {props.selected==='credit' ? <Box width={20} height={20}>
-                <img src='/images/check.png' width='100%' alt="" />
-            </Box>
+            {props.selected==='credit' ? <CheckOn>
+                <img src='/images/check.svg' width='100%' alt=""/>
+            </CheckOn>
             : <CheckOff />}
             
             <Box ml={20} display='flex' justifyContent='space-between' width='90%'>
