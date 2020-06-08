@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, BumpCard, CheckOff, CheckOn } from '../basic';
+import { Box, BumpCard, CheckOff, CheckOn, Arrow } from '../basic';
 
 import { getValueFromObjectString, getValueFromString } from '../../utils/metafields';
 
@@ -27,8 +27,15 @@ const OrderBump = (props) => {
             <Box display='flex' justifyContent='center' alignItems='center'>
                 {props.active ? <CheckOn>
                     <img src='/images/check.svg' width='100%' alt=""/>
+                    <Arrow>
+                        <img src='/images/arrow.png' width='30px' alt='' ml='-100px'/>
+                    </Arrow>
                 </CheckOn>
-                : <CheckOff />}
+                : <CheckOff>
+                    <Arrow>
+                        <img src='/images/arrow.png' width='30px' alt='' ml='-100px'/>
+                    </Arrow>
+                </CheckOff>}                
                 <Box dangerouslySetInnerHTML={{__html: bump_headline}} ml={10}/>
             </Box>
             <Box dangerouslySetInnerHTML={{__html: bump_offer}} textAlign='center' px={10}/>
