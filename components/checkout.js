@@ -17,7 +17,7 @@ const CheckOutPage = (props) => {
     setSelectedMethod(method);
   }  
   return (
-    <Box pb={10} background='#efefef'>
+    <Box pb={10} background='whitesmoke'>
       <Nav {...props}/>
       <Container>
         

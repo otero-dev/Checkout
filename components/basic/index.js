@@ -85,7 +85,7 @@ export const Container = styled.div`
   width: 63%;
   margin: auto;
 
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 1200px) {
      width: 100%;
   }
 `;
@@ -96,7 +96,7 @@ export const NavBar = styled.div`
   width: 100%;
   background: #fff;
 
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 1200px) {
     width: 100%;
   }
 `;
@@ -105,19 +105,19 @@ export const NavBar = styled.div`
 export const ProductSummaryWrapper = styled.div`
   margin-top: 10px;
   min-height: 200px;
-  padding: 30px;
+  padding:10px 50px;
   border: 2px dashed black;
   display: flex;
   justify-content: space-between;
-  background: #fff;
-  @media only screen and (max-width: 1024px) {
+  background: #fff;  
+  @media only screen and (max-width: 1200px) {
     display: block;
   }
 `;
 
 export const ProductOverview = styled.div`
   width: 40%;
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 1200px) {
     width: 100%;
   };
 `
@@ -129,11 +129,18 @@ export const Headline = styled.div`
 
   & h1 {
     text-align: center;
+    font-size: 28px;
+    margin-top: 0;
+    line-height: 130%;
   }
 `;
 
 export const FeatureLine = styled.div`
   margin-left: 15px;
+  & p {
+    margin: 10px 0; 
+    line-height: 18pt
+  }
 `
 
 export const FeatureWrapper = styled.div`
@@ -147,34 +154,36 @@ export const ProductImage = styled.div`
   align-items: center;
   display: flex;
   overflow-y: auto;
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 1200px) {
     width: 100%;
   };
 `;
 
 export const ProductGallary = styled.div`
-  margin-top: 20px;
+  margin: 10px 0;
   width: 400px;
   display: flex;
   overflow-x: auto;
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 1200px) {
     width: 100%;
   };
 `;
 
 export const GallaryCell = styled.div`
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   margin-right: 16px;
 `
 
 export const ProductDescription = styled.div`
-  width: 60%;
-  padding-right: 40px;
-  padding-left: 30px;
-  @media only screen and (max-width: 1024px) {
+  
+  display: inline-block;
+  width: calc(60% - 35.2px);
+  padding: 35.2px;
+  height: 100%;
+  @media only screen and (max-width: 1200px) {
     width: 100%;
     padding: 0;
   };
@@ -183,7 +192,7 @@ export const ProductDescription = styled.div`
 
 export const Wrapper = styled.div`
   width: 48.5%;
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 1200px) {
     width: 100%;
   };
 `;
@@ -192,7 +201,7 @@ export const SuperWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 1200px) {
     display: block;
   };
 `;
@@ -376,7 +385,7 @@ export const ContactUs = styled.div`
     margin: 5px 0;
   }
   
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 1200px) {
     display: none;
   };
 `
@@ -390,7 +399,7 @@ export const StoreLogo = styled.div`
 `;
 
 export const SSLLogo = styled.div`
-  @media only screen and (max-width: 1024px) {
+  @media only screen and (max-width: 1200px) {
     display: none;
   }; 
 `;
