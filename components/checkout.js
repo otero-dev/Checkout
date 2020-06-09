@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useRef} from 'react';
-import { Container, Box, Wrapper, SuperWrapper } from './basic';
+import { Container, Box, Wrapper, SuperWrapper, Card, FaqSection } from './basic';
 import ProductSummary from './productSummary';
 import SelectQuantity from './selectQuantity';
 import SelectMethod from './selectMethod';
@@ -8,6 +8,7 @@ import OrderSummary from './orderSummary';
 import ShipInformation from './shipInformation';
 import BillingAddress from './billingAddress';
 import Nav from './navbar';
+import Faq from './faq';
 
 const CheckOutPage = (props) => {
   const [selectedMethod, setSelectedMethod] = useState('');
@@ -39,6 +40,7 @@ const CheckOutPage = (props) => {
             </React.Fragment>}
           </Wrapper>
         </SuperWrapper>
+        { selectedMethod !== '' && <Faq {...props}/>}
       </Container>
     </Box>
   );

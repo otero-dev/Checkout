@@ -27,7 +27,7 @@ const SelectQuantity = (props) => {
             if(field.key === 'offer_quantity_5') tmp_offer_quantity[4] = field.value;
 
             if(field.key === 'offer_right_text') tmp_right_text = getValueFromString(field.value, 'html');
-            if(field.key === 'product_shortname') tmp_short_name = getValueFromString(field.value, 'html');
+            if(field.key === 'product_shortname') tmp_short_name = field.value;
             
             if(field.key === 'discount_headline') tmp_discount_headline = getValueFromString(field.value, 'html');            
             if(field.key === 'discount_subheadline') tmp_discount_subline = getValueFromString(field.value, 'html');
@@ -77,8 +77,17 @@ const SelectQuantity = (props) => {
                 <Box>                    
                     {offer_discount.length > 0 && <Box>
                         {offer_discount.map((offer, index) => {
-                            return <DiscoundCard active={nIndex===index} selectOrder={selectOrder} index={index} key={index} discount={offer} quantity={offer_quantity[index]} rightText={right_text} shortName={short_name}/>
-                        })}
+                            return (
+                                <DiscoundCard 
+                                    price={props.price} 
+                                    active={nIndex===index} 
+                                    selectOrder={selectOrder} 
+                                    index={index} key={index} 
+                                    discount={offer} 
+                                    quantity={offer_quantity[index]} 
+                                    rightText={right_text} 
+                                    shortName={short_name}/>
+                        )})}
                     </Box>}
                 </Box>
             </Card>
