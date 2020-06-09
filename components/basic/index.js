@@ -485,3 +485,7 @@ export const QuestionCard = styled.div`
 export const AnswerCard = styled.div`
     padding: 20px 40px;
 `;
+
+export const PriceTag = styled.div`
+    text-decoration: line-through;
+`;

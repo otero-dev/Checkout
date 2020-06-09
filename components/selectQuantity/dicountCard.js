@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, CheckOff, CheckOn, DiscountMenuItem, BigArrow } from '../basic';
+import { Box, CheckOff, CheckOn, DiscountMenuItem, BigArrow, PriceTag } from '../basic';
 
 const DiscoundCard = (props) => {
     return (
@@ -17,13 +17,20 @@ const DiscoundCard = (props) => {
             </CheckOff>
             }
             
-            <Box ml={20} display='flex' alignItems='center' justifyContent='space-between' width="90%">
+            <Box ml={20} display='flex' alignItems='center' justifyContent='space-between' width="100%">
                 <Box display='flex' alignItems='center' width="55%">
                     <p>{props.index===2 ? <strong>Best Seller</strong> : ''}&nbsp;{props.discount}% OFF:&nbsp;{props.quantity}&nbsp;{props.shortName}{props.quantity>1?'s': ''}&nbsp; (Normally ${(props.price * props.quantity).toFixed(2)})</p>
                 </Box>
-                <Box display='flex' width="130px">
-                   <Box dangerouslySetInnerHTML={{__html: props.rightText}}></Box>
+                <Box display='flex'>
+                    <PriceTag ml={1}>
+                        ${props.price}
+                    </PriceTag>
+                    <Box ml={1}>
+                        ${(props.price * (100 - props.discount) / 100).toFixed(2)} 
+                    </Box>                      
+                    <Box width='130px' ml={1}>{props.index===2 ? <strong>{props.rightText}</strong> : props.rightText}</Box>
                 </Box>
+                
             </Box>
         </DiscountMenuItem>
     )

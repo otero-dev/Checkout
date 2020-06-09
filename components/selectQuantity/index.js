@@ -26,7 +26,7 @@ const SelectQuantity = (props) => {
             if(field.key === 'offer_quantity_4') tmp_offer_quantity[3] = field.value;
             if(field.key === 'offer_quantity_5') tmp_offer_quantity[4] = field.value;
 
-            if(field.key === 'offer_right_text') tmp_right_text = getValueFromString(field.value, 'html');
+            if(field.key === 'offer_right_text') tmp_right_text = field.value;
             if(field.key === 'product_shortname') tmp_short_name = field.value;
             
             if(field.key === 'discount_headline') tmp_discount_headline = getValueFromString(field.value, 'html');            
