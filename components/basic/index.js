@@ -82,7 +82,7 @@ export const Box = styled.div`
 `;
 
 export const Container = styled.div`
-  width: 60%;
+  width: 63%;
   margin: auto;
 
   @media only screen and (max-width: 1024px) {
@@ -116,7 +116,7 @@ export const ProductSummaryWrapper = styled.div`
 `;
 
 export const ProductOverview = styled.div`
-  width: 50%;
+  width: 40%;
   @media only screen and (max-width: 1024px) {
     width: 100%;
   };
@@ -171,15 +171,18 @@ export const GallaryCell = styled.div`
 `
 
 export const ProductDescription = styled.div`
-  width: 50%;
+  width: 60%;
+  padding-right: 40px;
+  padding-left: 30px;
   @media only screen and (max-width: 1024px) {
     width: 100%;
+    padding: 0;
   };
 `;
 
 
 export const Wrapper = styled.div`
-  width: 48%;
+  width: 48.5%;
   @media only screen and (max-width: 1024px) {
     width: 100%;
   };
@@ -216,19 +219,19 @@ export const BumpCard = styled.div`
 `;
 
 export const CheckOff = styled.div`
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
-  border: 1.5px solid #172969;
+  border: 2px solid #172969;
   position: relative;
 `;
 
 export const CheckOn = styled.div`
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   background: #172969;
-  border: 1.5px solid #172969;
+  border: 2px solid #172969;
   position: relative;
 `;
 
@@ -246,7 +249,7 @@ export const DiscountMenuItem = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
-  padding: 10px;
+  padding: 5px 10px;
   border-radius: 5px;
   &:hover {
     background: #efefef;
@@ -359,9 +362,19 @@ export const Arrow = styled.div`
   animation: ${bump} 3s infinite;
 `;
 
+export const BigArrow = styled.div`
+  position: absolute;
+  top: -5px;
+  left: -45px;
+`;
+
 export const ContactUs = styled.div`
   text-align: center;
-  margin-left: 10px;
+  margin-left: 30px;
+
+  & p {
+    margin: 5px 0;
+  }
   
   @media only screen and (max-width: 1024px) {
     display: none;
@@ -369,9 +382,10 @@ export const ContactUs = styled.div`
 `
 
 export const StoreLogo = styled.div`
+  margin-left: 17.6px;
   display: flex;
   justify-content: space-between;
-  width: 60%;
+  width: 65%;
   align-items: center;  
 `;
 
@@ -452,4 +466,22 @@ export const PaypalButton = styled.button`
     &:hover {
       background-color: #e9ac00;
     }
+`;
+
+export const QuestionCard = styled.div`
+  padding: 15px;
+  text-align: left;
+  border: 2px solid rgba(40, 40, 80, 0.3);
+  border-radius: 3px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  line-height: 140%;
+  justify-content: space-between;
+  background-color: #323232;
+  color: white;
+`;
+
+export const AnswerCard = styled.div`
+    padding: 20px 40px;
 `;

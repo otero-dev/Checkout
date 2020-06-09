@@ -7,10 +7,11 @@ export default (req, res) => {
     let enc = btoa(str);
     const productPromise = client.product.fetch(enc);
     return Promise.all([productPromise]).then(([product]) => {
+        const price = product.variants[0].price;
         let product_images = [];
         for(let img of product.attrs.images) {
           product_images.push(img.src);
         }
-        res.send(product_images);
+        res.status(200).json({images: product_images, price: price});
     });
 }

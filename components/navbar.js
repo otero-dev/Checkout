@@ -8,7 +8,6 @@ import { getValueFromObjectString, getValueFromString } from '../utils/metafield
 const Nav = (props) => {
     let tmp_store_logo = '', tmp_ssl_logo = '', tmp_contact_text = '', tmp_contact_email = '';
     if(props.metadata.length > 0) {
-        console.log(props.metadata);
         props.metadata.map(field => {
             if(field.key === 'store_logo') tmp_store_logo = getValueFromObjectString(field.value, 'src');
             if(field.key === 'ssl_image') tmp_ssl_logo = getValueFromObjectString(field.value, 'src');
@@ -26,32 +25,35 @@ const Nav = (props) => {
     return (
         <NavBar>
             <Container>
-                <Box display='flex' justifyContent='space-between' alignItems='center'>
+                <Box display='flex' alignItems='center'>
                     <StoreLogo> 
-                        <Box ml={20}>
+                        <Box>
                             <img src={store_logo} alt='' />
                         </Box>
                         <SSLLogo>
                             <img src={ssl_logo} alt='' />
                         </SSLLogo>
                     </StoreLogo>
-                    <Box display='flex' width='30%' alignItems='center' justifyContent=''>
-                        <Box>
-                            <ReactCountryFlag
-                                countryCode="US"
-                                svg
-                                style={{
-                                    borderRadius: '10px',
-                                    width: '3.5em',
-                                    height: '2.5em',
-                                }}
-                                title="US"
-                            />
+                    <Box display='flex' width='30%' alignItems='center' justifyContent='space-between'>
+                        <Box width={'20%'}/>
+                        <Box display='flex' alignItems='center' width='80%'>
+                            <Box>
+                                <ReactCountryFlag
+                                    countryCode="US"
+                                    svg
+                                    style={{
+                                        borderRadius: '10px',
+                                        width: '3.5em',
+                                        height: '2.5em',
+                                    }}
+                                    title="US"
+                                />
+                            </Box>
+                            <ContactUs>
+                                <Box dangerouslySetInnerHTML={{__html: contact_text}} />
+                                <Box dangerouslySetInnerHTML={{__html: contact_email}} />
+                            </ContactUs>
                         </Box>
-                        <ContactUs>
-                            <Box dangerouslySetInnerHTML={{__html: contact_text}} />
-                            <Box dangerouslySetInnerHTML={{__html: contact_email}} />
-                        </ContactUs>
                     </Box>
                 </Box>
             </Container>
