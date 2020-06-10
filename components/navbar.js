@@ -8,7 +8,6 @@ import { getValueFromObjectString, getValueFromString } from '../utils/metafield
 const Nav = (props) => {
     let tmp_store_logo = '', tmp_ssl_logo = '', tmp_contact_text = '', tmp_contact_email = '';
     if(props.metadata.length > 0) {
-        console.log(props.metadata)
         props.metadata.map(field => {
             if(field.key === 'app_logo') tmp_store_logo = getValueFromObjectString(field.value, 'src');
             if(field.key === 'ssl_image') tmp_ssl_logo = getValueFromObjectString(field.value, 'src');
