@@ -18,8 +18,8 @@ const DiscoundCard = (props) => {
             }
             
             <Box ml={20} display='flex' alignItems='center' justifyContent='space-between' width="100%">
-                <Box display='flex' alignItems='center' width="55%">
-                    <p>{props.index===2 ? <strong>Best Seller</strong> : ''}&nbsp;{props.discount}% OFF:&nbsp;{props.quantity}&nbsp;{props.shortName}{props.quantity>1?'s': ''}&nbsp; (Normally ${(props.price * props.quantity).toFixed(2)})</p>
+                <Box display='flex' alignItems='center' width="45%">
+                    <p>{props.index===2?<strong>Best Seller</strong>:''}&nbsp;{props.discount}% OFF: &nbsp;{props.quantity}&nbsp;{props.shortName}{props.quantity>1?'s': ''}&nbsp; (Normally ${(props.price * props.quantity).toFixed(2)})</p>
                 </Box>
                 <Box display='flex'>
                     <PriceTag ml={1}>
