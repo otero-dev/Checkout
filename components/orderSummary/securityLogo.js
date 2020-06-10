@@ -28,7 +28,7 @@ const SecurityLogo = (props) => {
                 <Box>
                     <img src={guarantee_icon} />
                 </Box>
-                <Box dangerouslySetInnerHTML={{__html: guarantee_text}}  ml={20}/>
+                <Box style={{lineHeight: '20pt'}} dangerouslySetInnerHTML={{__html: guarantee_text}}  ml={20}/>
             </Box>
         </Box>        
     )

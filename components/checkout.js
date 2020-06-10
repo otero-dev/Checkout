@@ -1,5 +1,5 @@
 import React, {useEffect, useState, useRef} from 'react';
-import { Container, Box, Wrapper, SuperWrapper, Card, FaqSection } from './basic';
+import { Container, Box, Wrapper, SuperWrapper } from './basic';
 import ProductSummary from './productSummary';
 import SelectQuantity from './selectQuantity';
 import SelectMethod from './selectMethod';
@@ -9,6 +9,7 @@ import ShipInformation from './shipInformation';
 import BillingAddress from './billingAddress';
 import Nav from './navbar';
 import Faq from './faq';
+import Footer from './footer';
 
 const CheckOutPage = (props) => {
   console.log(props.faq);
@@ -42,6 +43,7 @@ const CheckOutPage = (props) => {
           </Wrapper>
         </SuperWrapper>
         { props.faq === 'true' && <Faq {...props}/>}
+        <Footer {...props} />
       </Container>
     </Box>
   );
