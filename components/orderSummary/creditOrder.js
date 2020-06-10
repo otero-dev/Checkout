@@ -58,15 +58,15 @@ const CreditOrder = (props) => {
                 <Box>
                     <CreditOrderShip>
                         <Box>
-                            shipping: 
+                            SHIPPING: 
                         </Box>
                         <Box color='#1ab22c'>
-                            FREE
+                            <strong>FREE</strong>
                         </Box>
                     </CreditOrderShip>
                     <CreditOrderTotal>
                         <Box>
-                            <strong>TOTAL:</strong>(before taxes)
+                            <strong>TOTAL:&nbsp;</strong>(before taxes)
                         </Box>
                         <Box>
                             $169.77

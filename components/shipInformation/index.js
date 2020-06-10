@@ -73,7 +73,7 @@ const ShipInformation = (props) => {
                     </Box>
                     <Box>
                         <SelectBox>
-                            <option value="">Canada</option>
+                            <option value="">Country</option>
                             <option value="canada">Canada</option>
                             <option value="usa">United States</option>
                         </SelectBox>

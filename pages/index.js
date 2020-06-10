@@ -22,14 +22,14 @@ const Index = (props) => {
 
   return (
     <React.Fragment>
-      {metafields.length > 0 ? <CheckOutPage images={images} metadata={metafields} price={price} faq={props.faq}/> : <div />}
+      {metafields.length > 0 ? <CheckOutPage images={images} metadata={metafields} price={price} faq={props.faq} proof={props.proof}/> : <div />}
     </React.Fragment>
   )
 }
 
 Index.getInitialProps = async (context) => {
-    const { id, faq } = context.query;
-    return {productId: id, faq: faq};
+    const { id, faq, proof } = context.query;
+    return {productId: id, faq: faq, proof: proof};
 }
 
 export default Index;
