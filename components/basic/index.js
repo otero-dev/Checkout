@@ -498,3 +498,45 @@ export const AnswerCard = styled.div`
 export const PriceTag = styled.div`
     text-decoration: line-through;
 `;
+
+export const FooterBox = styled.div`
+  width: 100%;
+  padding: 40px 0;
+  margin-top: 0;
+  position: relative;
+  overflow: hidden;
+  color: #9d9fa2;
+  
+  & a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  & span {
+    display: inline-block;
+    font-size: 14px;
+    margin-top: 0;
+    position: relative;
+    overflow: hidden;
+    color: #9d9fa2;
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    &.dash:after {
+      margin: 0 5px;
+      display: inline-block;
+      content: "|";
+    }
+  }
+`;
+
+export const Term = styled.div`
+  width: 90%;
+  max-width: 600px;
+  margin: 20px auto;
+  font-size: 12px;
+  text-align: justify;
+  line-height: 135%;
+  text-align-last: center;
+`;
