@@ -11,6 +11,7 @@ import Nav from './navbar';
 import Faq from './faq';
 
 const CheckOutPage = (props) => {
+  console.log(props.faq);
   const [selectedMethod, setSelectedMethod] = useState('');
 
   const changeMethod = (method) => {
@@ -40,7 +41,7 @@ const CheckOutPage = (props) => {
             </React.Fragment>}
           </Wrapper>
         </SuperWrapper>
-        { selectedMethod !== '' && <Faq {...props}/>}
+        { props.faq === 'true' && <Faq {...props}/>}
       </Container>
     </Box>
   );
