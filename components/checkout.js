@@ -12,7 +12,6 @@ import Faq from './faq';
 import Footer from './footer';
 
 const CheckOutPage = (props) => {
-  console.log(props.faq);
   const [selectedMethod, setSelectedMethod] = useState('');
 
   const changeMethod = (method) => {
@@ -32,7 +31,7 @@ const CheckOutPage = (props) => {
           <Wrapper>
             <SelectMethod selectMethod={changeMethod} selected={selectedMethod}/>
             { selectedMethod !== '' && <React.Fragment>
-              <CustomerInfo />
+              <CustomerInfo {...props}/>
               {selectedMethod === 'credit' && <React.Fragment>
                 <ShipInformation />
                 <BillingAddress />

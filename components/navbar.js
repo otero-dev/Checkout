@@ -20,8 +20,6 @@ const Nav = (props) => {
     const ssl_logo = tmp_ssl_logo;
     const contact_text = tmp_contact_text;
     const contact_email = tmp_contact_email;
-    console.log('store_image', store_logo);
-    
 
     return (
         <NavBar>
