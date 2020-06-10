@@ -41,9 +41,7 @@ const CreditOrder = (props) => {
                 </Box>
                 <Box mt='17.6px'>
                     <CreditOrderDetail style={{background: `${selected?'whitesmoke': 'white'}`}}>
-                        <Box>
-                            1 unPillow Jumbo
-                        </Box>
+                        <Box> unPillow Jumbo</Box>
                         <Box>
                             $159.80
                         </Box>
