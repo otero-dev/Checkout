@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Box, InputField, InvalidBox } from './index';
-import PhoneInput, { format, normalize } from "react-phone-input-auto-format";
+import PhoneInput, { normalize } from "react-phone-input-auto-format";
 
 const PhoneBaseInput = () => <InputField placeholder='phone number' />;
 
@@ -10,10 +10,16 @@ const Input = (props) => {
     const [valid, setValid] = useState(false);
     const [startEdit, setStartEdit] = useState(false);
     
-    useEffect(() => {
-        setValid(true);
+    useEffect(() => {        
         if(props.name === 'email') {
             if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value)) setValid(true)
+            else setValid(false);
+        }
+        if(props.name === 'phone') {
+            var phoneno = /^\d{10}$/;
+            if(value.match(phoneno)){
+                setValid(true);
+            }
             else setValid(false);
         }
     }, [value]);
@@ -39,9 +45,14 @@ const Input = (props) => {
         security_code: 'Please Enter A Valid Security Code',
     };
 
+    const onChangePhoneNumber = (value) => {
+        const normalizeNumber = normalize(value);
+        setValue(normalizeNumber);
+    }
+
     return (
         <Box>
-            {props.name === 'phone' ? <PhoneInput inputComponent={InputField} placeholder={props.placeholder} onBlur={() => setActive(false)} onFocus={() => {setActive(true); setStartEdit(true)}}/> : 
+            {props.name === 'phone' ? <PhoneInput inputComponent={InputField} onChange={ onChangePhoneNumber } placeholder={props.placeholder} onBlur={() => setActive(false)} onFocus={() => {setActive(true); setStartEdit(true)}}/> : 
             <InputField 
                 placeholder={props.placeholder} 
                 onChange={ev => setValue(ev.target.value)} 
