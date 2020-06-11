@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react';
 import { Box, InputField, InvalidBox } from './index';
 import PhoneInput, { normalize } from "react-phone-input-auto-format";
 
-const PhoneBaseInput = () => <InputField placeholder='phone number' />;
-
 const Input = (props) => {
     const [value, setValue] = useState('');
     const [active, setActive] = useState(false);
