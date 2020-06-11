@@ -7,7 +7,6 @@ const OrderBump = (props) => {
     let tmp_bump_icon = '', tmp_bump_headline = '', tmp_bump_offer ='';
 
     if(props.metadata.length > 0) {
-        console.log(props.metadata);
         props.metadata.map(field => {
             if(field.key === 'order_bump_icon') tmp_bump_icon = getValueFromObjectString(field.value, 'src');
             if(field.key === 'order_bump_headline') tmp_bump_headline = getValueFromString(field.value, 'html');

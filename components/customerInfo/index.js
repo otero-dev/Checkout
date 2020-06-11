@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, Card, InputField } from '../basic';
+import { Box, Card } from '../basic';
+import Input from '../basic/customInputField'
 import { getValueFromObjectString } from '../../utils/metafields';
 
 const CustomerInfo = (props) => {
@@ -20,17 +21,17 @@ const CustomerInfo = (props) => {
                 <Box>
                     <Box display='flex' justifyContent='space-between'>
                         <Box width='48%'>
-                            <InputField placeholder='First Name' required/>
+                            <Input placeholder='First Name' name='firstname'/>
                         </Box>
                         <Box width='48%'>
-                            <InputField placeholder='Last Name' required/>
+                            <Input placeholder='Last Name'name='lastname'/>
                         </Box>
                     </Box>
                     <Box>
-                        <InputField placeholder='E-mail' required/>
+                        <Input placeholder='E-mail' name='email'/>
                     </Box>
                     <Box>
-                        <InputField type='tel' placeholder='Phone' required/>
+                        <Input type='tel' placeholder='Phone' name='phone'/>
                     </Box>
                 </Box>
                 {props.proof === 'true' && <Box mt={20}>

@@ -1,5 +1,6 @@
 import React, {useMemo} from 'react';
-import { Box, Card, InputField, SelectBox } from '../basic';
+import { Box, Card, SelectBox, InputField } from '../basic';
+import Input from '../basic/customInputField';
 import {Elements, CardElement} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
 
@@ -63,13 +64,13 @@ const ShipInformation = (props) => {
                 <hr />
                 <Box>
                     <Box>
-                        <InputField placeholder='Street Address'/>
+                        <Input placeholder='Street Address' name='street'/>
                     </Box>
                     <Box>
                         <InputField placeholder='Apartment  or Suite (Optional)'/>
                     </Box>
                     <Box>
-                        <InputField placeholder='City'/>
+                        <Input placeholder='City' name='city'/>
                     </Box>
                     <Box>
                         <SelectBox>
@@ -147,7 +148,7 @@ const ShipInformation = (props) => {
                             </SelectBox>
                         </Box>
                         <Box width='35%'>
-                            <InputField placeholder='Zip Code'/>
+                            <Input placeholder='Zip Code' name='zipcode'/>
                         </Box>
                     </Box>                    
                     <Box mt={20}>

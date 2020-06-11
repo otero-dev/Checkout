@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Card, InputField, SelectBox, CheckOff, CheckOn } from '../basic';
+import Input from '../basic/customInputField';
 
 const BillingAddress = (props) => {
     const [useSame, setUseSame] = useState(true);
     useEffect(() => {
-        console.log('useSame', useSame);
+
     }, [useSame])
     return (
         <Box mt={20}>
@@ -38,23 +39,23 @@ const BillingAddress = (props) => {
                     
                     <Box display='flex' justifyContent='space-between'>
                         <Box width='48%'>
-                            <InputField placeholder='First Name' required/>
+                            <Input placeholder='First Name' />
                         </Box>
                         <Box width='48%'>
-                            <InputField placeholder='Last Name' required/>
+                            <Input placeholder='Last Name'/>
                         </Box>
                     </Box>
                     <Box>
-                        <InputField type='tel' placeholder='Phone' required/>
+                        <Input type='tel' placeholder='Phone' name='phone'/>
                     </Box>
                     <Box>
-                        <InputField placeholder='Street Address'/>
+                        <Input placeholder='Street Address' name='street'/>
                     </Box>
                     <Box>
                         <InputField placeholder='Apartment  or Suite (Optional)'/>
                     </Box>
                     <Box>
-                        <InputField placeholder='City'/>
+                        <Input placeholder='City' name='city'/>
                     </Box>
                     <Box>
                         <SelectBox>
@@ -132,7 +133,7 @@ const BillingAddress = (props) => {
                             </SelectBox>
                         </Box>
                         <Box width='35%'>
-                            <InputField placeholder='Postal Code'/>
+                            <Input placeholder='Postal Code' name='zipcode'/>
                         </Box>
                     </Box>
                 </Box>}
