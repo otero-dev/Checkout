@@ -280,6 +280,14 @@ export const InputField = styled.input`
   }
 `;
 
+export const InvalidBox = styled.div`
+  display: flex;
+  justify-content: center;
+  color: #c91f3f;
+  margin-top: 5px;
+  font-size: 14px;
+`;
+
 export const SelectBox = styled.select`
   height: 53.2px;
   width: 100%;
@@ -289,10 +297,7 @@ export const SelectBox = styled.select`
   margin-top: 17.6px;
   background-color: whitesmoke;
   padding: 17.6px;
-  font-size: 16px;
-  &:focus {
-    box-shadow: 0px 0px 0px 2px rgba(26,178,44,0.5);
-  }
+  font-size: 16px;  
 `
 
 export const DiscountBrand = styled.div`
