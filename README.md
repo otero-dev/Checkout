@@ -1,3 +1,2 @@
-# Authorization: Joe Resin
-# developer: Alex Lee
-Ultra Checkout v1.0
+### ultra Checkout 
+#### v1.0-beta-ui
