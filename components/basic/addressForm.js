@@ -1,5 +1,20 @@
-import { Box } from './index';
+import { useEffect, useState } from "react";
+import usePlacesAutocomplete, { getGeocode, getLatLng } from 'use-places-autocomplete';
+import useOnclickOutside from 'react-cool-onclickoutside';
+
+
+import { Box, InputField, SelectBox } from './index';
+import Input from './customInputField';
+
+
+import { STATES } from '../../utils/states';
+
+
 const AddressForm = (props) => {
+
+    const [country, setCountry] = useState('');
+    const [states, setStates] = useState('');
+
     return (
     <Box>
         <Box>                      
@@ -34,14 +49,9 @@ const AddressForm = (props) => {
             <Box width='35%'>
                 <Input placeholder='Zip Code' name='zipcode'/>
             </Box>
-        </Box>                    
-        <Box mt={20}>
-            <Box>Add Card Info</Box>
-            <Elements stripe={stripePromise}>
-                <CardElement options={options}/>
-            </Elements>
         </Box>
     </Box>
     )
-    
 }
+
+export default AddressForm;
