@@ -13,6 +13,7 @@
     "axios": "^0.19.2",
     "btoa": "^1.2.1",
     "next": "9.4.4",
+    "next-redux-wrapper": "^6.0.2",
     "node-fetch": "^2.6.0",
     "react": "16.13.1",
     "react-country-flag": "^2.1.0",
@@ -20,6 +21,8 @@
     "react-phone-input-auto-format": "^0.1.0",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
     "shopify-buy": "^2.10.0",
     "styled-components": "^5.1.1",
     "styled-system": "^5.1.5"

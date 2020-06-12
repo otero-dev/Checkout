@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { useSelector } from 'react-redux';
 import { Box, Card, InputField, CreditOrderDetail, CreditOrderShip, CreditOrderTotal, CardPayButton } from '../basic';
 import OrderBump from './orderBump';
 import SecurityLogo from './securityLogo';
@@ -24,7 +25,7 @@ const CreditOrder = (props) => {
         setSelected(!value);
     }
 
-
+    const order = useSelector(state => state.order);
 
     return (
         <Box mt={20}>
@@ -43,7 +44,7 @@ const CreditOrder = (props) => {
                     <CreditOrderDetail style={{background: `${selected?'whitesmoke': 'white'}`}}>
                         <Box> unPillow Jumbo</Box>
                         <Box>
-                            $159.80
+                            ${order.price}
                         </Box>
                     </CreditOrderDetail>
                 </Box>
@@ -69,7 +70,7 @@ const CreditOrder = (props) => {
                             <strong>TOTAL:&nbsp;</strong>(before taxes)
                         </Box>
                         <Box>
-                            $169.77
+                            ${selected?order.price + 9.97: order.price}
                         </Box>
                     </CreditOrderTotal>
                 </Box>

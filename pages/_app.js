@@ -1,6 +1,9 @@
+import React from 'react';
 import '../styles.css'
+import {wrapper} from '../reducers';
 
-// This default export is required in a new `pages/_app.js` file.
-export default function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
+const MyApp = ({Component, pageProps}) => (
+    <Component {...pageProps} />
+);
+
+export default wrapper.withRedux(MyApp);
