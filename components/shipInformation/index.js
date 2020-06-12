@@ -55,6 +55,8 @@ const useOptions = () => {
 
 const ShipInformation = (props) => {    
     const options = useOptions();
+    const [country, setCountry] = useState('');
+    const [states, setStates] = useState('');
     return (
         <Box mt={20}>
             <Card>
@@ -73,7 +75,7 @@ const ShipInformation = (props) => {
                         <Input placeholder='City' name='city'/>
                     </Box>
                     <Box>
-                        <SelectBox>
+                        <SelectBox onChange={ev => setCountry(ev.target.value)}>
                             <option value="">Country</option>
                             <option value="canada">Canada</option>
                             <option value="usa">United States</option>
@@ -81,7 +83,8 @@ const ShipInformation = (props) => {
                     </Box>
                     <Box display='flex' justifyContent='space-between'>
                         <Box width='60%'>
-                            <SelectBox>
+                          {country === 'usa' ? 
+                            <SelectBox onChange={ev => setStates(ev.target.value)} defaultValue={states}>
                                 <option value="">State</option>
                                 <option value="AL">Alabama</option>
                                 <option value="AK">Alaska</option>
@@ -146,6 +149,23 @@ const ShipInformation = (props) => {
                                 <option value="WI">Wisconsin</option>
                                 <option value="WY">Wyoming</option>
                             </SelectBox>
+                            : 
+                            <SelectBox onChange={ev => setStates(ev.target.value)} defaultValue={states}>
+                              <option value="">State</option>
+                              <option value="AB">Alberta</option>
+                              <option value="BC">British Columbia</option>
+                              <option value="MB">Manitoba</option>
+                              <option value="NB">New Brunswick</option>
+                              <option value="NL">Newfoundland and Labrador</option>
+                              <option value="NT">Northwest Territories</option>
+                              <option value="NS">Nova Scotia</option>
+                              <option value="NU">Nunavut</option>
+                              <option value="ON">Ontario</option>
+                              <option value="PE">Prince Edward Island</option>
+                              <option value="QC">Quebec</option>
+                              <option value="SK">Saskatchewan</option>
+                              <option value="YT">Yukon</option>
+                            </SelectBox>}
                         </Box>
                         <Box width='35%'>
                             <Input placeholder='Zip Code' name='zipcode'/>

@@ -4,6 +4,8 @@ import Input from '../basic/customInputField';
 
 const BillingAddress = (props) => {
     const [useSame, setUseSame] = useState(true);
+    const [country, setCountry] = useState('');
+    const [states, setStates] = useState('');
     useEffect(() => {
 
     }, [useSame])
@@ -58,15 +60,16 @@ const BillingAddress = (props) => {
                         <Input placeholder='City' name='city'/>
                     </Box>
                     <Box>
-                        <SelectBox>
-                            <option value="">Canada</option>
+                        <SelectBox onChange={ev => setCountry(ev.target.value)} defaultValue={country}>
+                            <option value="">Country</option>
                             <option value="canada">Canada</option>
                             <option value="usa">United States</option>
                         </SelectBox>
                     </Box>
                     <Box display='flex' justifyContent='space-between'>
                         <Box width='60%'>
-                            <SelectBox>
+                            {country === 'usa' ? 
+                            <SelectBox onChange={ev => setStates(ev.target.value)} defaultValue={states}>
                                 <option value="">State</option>
                                 <option value="AL">Alabama</option>
                                 <option value="AK">Alaska</option>
@@ -130,7 +133,24 @@ const BillingAddress = (props) => {
                                 <option value="WV">West Virginia</option>
                                 <option value="WI">Wisconsin</option>
                                 <option value="WY">Wyoming</option>
-                            </SelectBox>
+                            </SelectBox> 
+                            :
+                            <SelectBox onChange={ev => setStates(ev.target.value)} defaultValue={states}>
+                                <option value="">State</option>
+                                <option value="AB">Alberta</option>
+                                <option value="BC">British Columbia</option>
+                                <option value="MB">Manitoba</option>
+                                <option value="NB">New Brunswick</option>
+                                <option value="NL">Newfoundland and Labrador</option>
+                                <option value="NT">Northwest Territories</option>
+                                <option value="NS">Nova Scotia</option>
+                                <option value="NU">Nunavut</option>
+                                <option value="ON">Ontario</option>
+                                <option value="PE">Prince Edward Island</option>
+                                <option value="QC">Quebec</option>
+                                <option value="SK">Saskatchewan</option>
+                                <option value="YT">Yukon</option>
+                            </SelectBox>}
                         </Box>
                         <Box width='35%'>
                             <Input placeholder='Postal Code' name='zipcode'/>
