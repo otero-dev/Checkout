@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from "react-redux";
 import { Box, Card, DiscountBrand, DiscoundDash, DiscountDescription } from '../basic';
 import { getValueFromString, getValueFromObjectString } from '../../utils/metafields';
 import DiscoundCard from './dicountCard';
@@ -36,7 +37,6 @@ const SelectQuantity = (props) => {
     };
 
     const offer_discount = tmp_offer_discount;
-    console.log(offer_discount.length);
     const offer_quantity = tmp_offer_quantity; 
     const right_text = tmp_right_text;
     const short_name = tmp_short_name;
@@ -44,11 +44,13 @@ const SelectQuantity = (props) => {
     const discount_headline = tmp_discount_headline;
     const discount_subheadline = tmp_discount_subline;
     const discount_icon = tmp_discount_icon;
-
     const [nIndex, setNIndex] = useState(0);
+    const dispatch = useDispatch();
 
     const selectOrder = (index) => {
         setNIndex(index);
+        const order = {name: short_name, price: (props.price * (100 - offer_discount[index]) / 100).toFixed(2) * offer_quantity[index]};
+        dispatch({ type: 'ORDER', payload: {order}});
     }
     
     return (
