@@ -20,6 +20,7 @@
     "react-country-flag": "^2.1.0",
     "react-dom": "16.13.1",
     "react-google-autocomplete": "^1.2.6",
+    "react-phone-input-2": "^2.13.5",
     "react-phone-input-auto-format": "^0.1.0",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",

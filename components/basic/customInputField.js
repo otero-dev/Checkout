@@ -3,39 +3,17 @@ import { Box, InputField, InvalidBox } from './index';
 import PhoneInput, { normalize } from "react-phone-input-auto-format";
 
 const Input = (props) => {
-    console.log(props.value);
-    const [value, setValue] = useState(props.value?props.value: '');
-    const [active, setActive] = useState(false);
-    const [valid, setValid] = useState(false);
-    const [startEdit, setStartEdit] = useState(false);
     
-    useEffect(() => {        
-        if(props.name === 'email') {
-            if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value)) setValid(true)
-            else setValid(false);
-        }
-        if(props.name === 'phone') {
-            var phoneno = /^\d{10}$/;
-            if(value.match(phoneno)){
-                setValid(true);
-            }
-            else setValid(false);
-        }
-    }, [value]);
-
-    useEffect(() => {
-        setValid(true);
-        if(!active && value==='' && startEdit) {
-            setValid(false);
-        }
-    }, [active]);
+    const [edit, setEdit] = useState(false);
+    const [valid, setValid] = useState(false);
+    const [value, setValue] = useState('');
+    const [start, setStart] = useState(false);
 
     const borderStyle = {
-        boxShadow: !valid ? '0px 0px 0px 2px rgba(201, 31, 63, 0.5)' : active ? '0px 0px 0px 2px rgba(26,178,44,0.5)' : 'none'
+        boxShadow: edit ? '0px 0px 0px 2px rgba(26,178,44,0.5)' : start && !valid ? '0px 0px 0px 2px rgba(201, 31, 63, 0.5)' : 'none'
     }
 
     const INVALID_MSG = {
-        phone: 'Please Enter A Valid Phone Number',
         email: 'Please Enter A Valid Email Address',
         street: 'Please Enter A Valid Street Address',
         city: 'Please Enter A Valid City',
@@ -44,21 +22,26 @@ const Input = (props) => {
         security_code: 'Please Enter A Valid Security Code',
     };
 
-    const onChangePhoneNumber = (value) => {
-        const normalizeNumber = normalize(value);
-        setValue(normalizeNumber);
+    const checkValidation = () => {
+        setEdit(false);
+        if(props.name === 'email') {
+            if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value)) setValid(true)
+            else setValid(false);
+        } else {
+            if(value==='') setValid(false)
+            else setValid(true);
+        }
     }
 
     return (
-        <Box>
-            {props.name === 'phone' ? <PhoneInput inputComponent={InputField} onChange={ onChangePhoneNumber } placeholder={props.placeholder} onBlur={() => setActive(false)} onFocus={() => {setActive(true); setStartEdit(true)}}/> : 
+        <Box>            
             <InputField 
                 defaultValue={props.value?props.value: ''}
                 placeholder={props.placeholder} 
                 onChange={ev => setValue(ev.target.value)} 
-                onBlur={() => setActive(false)} onFocus={() => {setActive(true); setStartEdit(true)}} style={borderStyle}/>}
+                onBlur={checkValidation} onFocus={() => {setEdit(true); setStart(true)}} style={borderStyle}/>
             
-            {!valid && <InvalidBox>
+            {(start && !valid && !edit) && <InvalidBox>
                 {INVALID_MSG[props.name] ? INVALID_MSG[props.name]: 'This Field Is Required'}
             </InvalidBox>}
         </Box>
