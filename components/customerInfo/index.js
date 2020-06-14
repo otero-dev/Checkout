@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Card } from '../basic';
-import Input from '../basic/customInputField'
+import Input from '../basic/customInputField';
+import Phone from '../basic/phoneInput';
 import { getValueFromObjectString } from '../../utils/metafields';
 
 const CustomerInfo = (props) => {
@@ -30,9 +31,7 @@ const CustomerInfo = (props) => {
                     <Box>
                         <Input placeholder='E-mail' name='email'/>
                     </Box>
-                    <Box>
-                        <Input type='tel' placeholder='Phone' name='phone'/>
-                    </Box>
+                    <Phone />
                 </Box>
                 {props.proof === 'true' && <Box mt={20}>
                     <img src={proof_image} width='100%' />
