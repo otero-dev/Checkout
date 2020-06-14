@@ -545,3 +545,22 @@ export const Term = styled.div`
   line-height: 135%;
   text-align-last: center;
 `;
+
+export const StreetWrapper = styled.div`
+  position: relative;
+  & ul {
+    position: absolute;
+    width: 100%;
+    right: 0;
+    top: 30;
+
+    & li {
+      list-style-type: none;
+      background: white;
+      width: 100%;
+      height: 30px;
+      border-bottom: 1px solid whitesmoke;
+      padding-left: 17.6px;
+    }
+  }
+`;

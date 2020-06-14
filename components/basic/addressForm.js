@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-import usePlacesAutocomplete, { getGeocode, getLatLng } from 'use-places-autocomplete';
-import useOnclickOutside from 'react-cool-onclickoutside';
-
 
 import { Box, InputField, SelectBox } from './index';
 import Input from './customInputField';
+import StreetInput from './streetInput';
 
 
 import { STATES } from '../../utils/states';
@@ -14,17 +12,24 @@ const AddressForm = (props) => {
 
     const [country, setCountry] = useState('');
     const [states, setStates] = useState('');
+    const [city, setCity] = useState('');
+
+    const fillAddressForm = (Country, State, City) => {
+        setCity(City);
+        setCountry(Country);
+        setStates(State);
+    };
 
     return (
     <Box>
         <Box>                      
-            <Input placeholder='Street Address' name='street'/>
+            <StreetInput fillAddressForm={fillAddressForm}/>
         </Box>
         <Box>
             <InputField placeholder='Apartment  or Suite (Optional)'/>
         </Box>
         <Box>
-            <Input placeholder='City' name='city'/>
+            <Input placeholder='City' name='city' value={city}/>
         </Box>
         <Box>
             <SelectBox onChange={ev => setCountry(ev.target.value)}>

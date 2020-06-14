@@ -3,7 +3,7 @@ import { Box, InputField, InvalidBox } from './index';
 import PhoneInput, { normalize } from "react-phone-input-auto-format";
 
 const Input = (props) => {
-    const [value, setValue] = useState('');
+    const [value, setValue] = useState(props.value?props.value: '');
     const [active, setActive] = useState(false);
     const [valid, setValid] = useState(false);
     const [startEdit, setStartEdit] = useState(false);
@@ -52,6 +52,7 @@ const Input = (props) => {
         <Box>
             {props.name === 'phone' ? <PhoneInput inputComponent={InputField} onChange={ onChangePhoneNumber } placeholder={props.placeholder} onBlur={() => setActive(false)} onFocus={() => {setActive(true); setStartEdit(true)}}/> : 
             <InputField 
+                value={value}
                 placeholder={props.placeholder} 
                 onChange={ev => setValue(ev.target.value)} 
                 onBlur={() => setActive(false)} onFocus={() => {setActive(true); setStartEdit(true)}} style={borderStyle}/>}
@@ -59,7 +60,6 @@ const Input = (props) => {
             {!valid && <InvalidBox>
                 {INVALID_MSG[props.name] ? INVALID_MSG[props.name]: 'This Field Is Required'}
             </InvalidBox>}
-
         </Box>
         
     )
