@@ -22,13 +22,13 @@ const Input = (props) => {
         security_code: 'Please Enter A Valid Security Code',
     };
 
-    const checkValidation = () => {
+    const checkValidation = (ev) => {
         setEdit(false);
         if(props.name === 'email') {
-            if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value)) setValid(true)
+            if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(ev)) setValid(true)
             else setValid(false);
         } else {
-            if(value==='') setValid(false)
+            if(ev==='') setValid(false)
             else setValid(true);
         }
     }
@@ -39,7 +39,7 @@ const Input = (props) => {
                 defaultValue={props.value?props.value: ''}
                 placeholder={props.placeholder} 
                 onChange={ev => setValue(ev.target.value)} 
-                onBlur={checkValidation} onFocus={() => {setEdit(true); setStart(true)}} style={borderStyle}/>
+                onBlur={ev => checkValidation(ev.target.value)} onFocus={() => {setEdit(true); setStart(true)}} style={borderStyle}/>
             
             {(start && !valid && !edit) && <InvalidBox>
                 {INVALID_MSG[props.name] ? INVALID_MSG[props.name]: 'This Field Is Required'}
