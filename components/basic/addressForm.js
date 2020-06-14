@@ -14,10 +14,10 @@ const AddressForm = (props) => {
     const [states, setStates] = useState('');
     const [city, setCity] = useState('');
 
-    const fillAddressForm = (Country, State, City) => {
+    const fillAddressForm = (Country, States, City) => {
         setCity(City);
         setCountry(Country);
-        setStates(State);
+        setStates(States);
     };
 
     return (
@@ -34,21 +34,21 @@ const AddressForm = (props) => {
         <Box>
             <SelectBox onChange={ev => setCountry(ev.target.value)}>
                 <option value="">Country</option>
-                <option value="canada">Canada</option>
-                <option value="usa">United States</option>
+                <option value="canada" selected={country==='Canada'}>Canada</option>
+                <option value="usa" selected={country==='USA'}>United States</option>
             </SelectBox>
         </Box>
         <Box display='flex' justifyContent='space-between'>
             <Box width='60%'>
-                {country === 'usa' ? 
-                <SelectBox onChange={ev => setStates(ev.target.value)} defaultValue={states}>
+                {country === 'USA' ? 
+                <SelectBox onChange={ev => setStates(ev.target.value)}>
                     <option value="">State</option>
-                    {STATES.usa.map(el => <option value={el.value}>{el.state}</option>)}
+                    {STATES.usa.map(el => <option value={el.value} selected={el.value===states}>{el.state}</option>)}
                 </SelectBox>
                 : 
-                <SelectBox onChange={ev => setStates(ev.target.value)} defaultValue={states}>
+                <SelectBox onChange={ev => setStates(ev.target.value)}>
                     <option value="">State</option>
-                    {STATES.canada.map(el => <option value={el.value}>{el.state}</option>)}
+                    {STATES.canada.map(el => <option value={el.value} selected={el.value===states}>{el.state}</option>)}
                 </SelectBox>}
             </Box>
             <Box width='35%'>
