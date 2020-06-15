@@ -32,12 +32,21 @@ const Input = (props) => {
             else setValid(true);
         }
     }
+
+    const onKeyDown = (ev) => {
+        console.log('here');
+        if(props.name === 'security') {
+            let str="0123456789";
+            if(str.indexOf(ev.key) < 0) preventDefault();
+        }
+    }
     
     return (
         <Box>            
             <InputField 
                 defaultValue={props.value?props.value: ''}
                 placeholder={props.placeholder}
+                onKeyDown={ev => onKeyDown(ev)}
                 onChange={ev => setValue(ev.target.value)}
                 onBlur={ev => checkValidation(ev.target.value)} onFocus={() => {setEdit(true); setStart(true)}} style={borderStyle}/>
             

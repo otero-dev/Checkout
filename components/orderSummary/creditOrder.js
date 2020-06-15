@@ -6,12 +6,13 @@ import SecurityLogo from './securityLogo';
 import { getValueFromString } from '../../utils/metafields';
 
 const CreditOrder = (props) => {
-    let tmp_button_text = '', tmp_button_text_color, tmp_button_color, tmp_default_discount = 0, tmp_default_quantity = 0, tmp_short_name = '';
+    let tmp_button_text = '', tmp_button_text_color, tmp_button_color, tmp_default_discount = 0, tmp_default_quantity = 0, tmp_short_name = '', tmp_bump_text;
 
     if(props.metadata.length > 0) {
         props.metadata.map(field => {
             if(field.key === 'button_text') tmp_button_text = getValueFromString(field.value, 'html');
             if(field.key === 'button_text_color') tmp_button_text_color = field.value;
+            if(field.key === 'order_bump_text') tmp_bump_text = getValueFromString(field.value, 'html');
             if(field.key === 'button_color') tmp_button_text = field.value;
             if(field.key === 'offer_discount_1') tmp_default_discount = field.value;
             if(field.key === 'offer_quantity_1') tmp_default_quantity = field.value;
@@ -25,6 +26,7 @@ const CreditOrder = (props) => {
     const default_discount = tmp_default_discount;
     const default_quantity = tmp_default_quantity;
     const short_name = tmp_short_name;
+    const bump_text = tmp_bump_text;
     
 
     const [selected, setSelected] = useState(false);
@@ -57,9 +59,7 @@ const CreditOrder = (props) => {
                     </CreditOrderDetail>
                 </Box>
                 {selected && <CreditOrderDetail>
-                    <Box>
-                        unPillow Jumbo LifetimeWarranty
-                    </Box>
+                    <Box dangerouslySetInnerHTML={{__html: bump_text}} />
                     <Box>
                         $9.97
                     </Box>
