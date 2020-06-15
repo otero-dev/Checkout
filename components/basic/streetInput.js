@@ -4,11 +4,12 @@ import usePlacesAutocomplete, { getZipCode, getGeocode } from 'use-places-autoco
 import useOnclickOutside from 'react-cool-onclickoutside';
 
 const StreetInput = (props) => {    
-    const [active, setActive] = useState(false);
+    const [start, setStart] = useState(false);
+    const [edit, setEdit] = useState(false);
     const [valid, setValid] = useState(false);
 
     const borderStyle = {
-        boxShadow: !valid ? '0px 0px 0px 2px rgba(201, 31, 63, 0.5)' : active ? '0px 0px 0px 2px rgba(26,178,44,0.5)' : 'none'
+      boxShadow: edit ? '0px 0px 0px 2px rgba(26,178,44,0.5)' : start && !valid ? '0px 0px 0px 2px rgba(201, 31, 63, 0.5)' : 'none'
     };
 
     const {
@@ -35,6 +36,8 @@ const StreetInput = (props) => {
         const streetAddress = splited.length > 3 ? splited[0] : "";
         setValue(streetAddress);
         props.fillAddressForm(country, states, city);
+        if(streetAddress === "") setValid(false);
+        else setValid(true);
     }
 
     const handleSelect = ({ description }) => () => {
@@ -80,8 +83,14 @@ const StreetInput = (props) => {
                 disabled={!ready}
                 placeholder="Street Address"
                 style = {borderStyle}
+                onBlur={() => setEdit(false)}
+                onFocus={() => {setEdit(true); setStart(true)}}
             />
             {status === 'OK' && <ul>{renderSuggestions()}</ul>}
+            {(start && !valid && !edit) && <InvalidBox>
+              Please Enter A Valid Street Address
+            </InvalidBox>}
+            
         </StreetWrapper>
         
     )
