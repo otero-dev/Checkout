@@ -8,7 +8,6 @@ export default (req, res) => {
     const productPromise = client.product.fetch(enc);
     return Promise.all([productPromise]).then(([product]) => {
         const price = product.variants[0].compareAtPrice;
-        console.log(price)
         let product_images = [];
         for(let img of product.attrs.images) {
           product_images.push(img.src);

@@ -1,10 +1,11 @@
 import { Box, InputField, SelectBox } from './index';
+import CardInput from './cardInput';
 
-const CardInputForm = (props) => {    
+const CreditInputForm = (props) => {    
     return (
         <Box>
             <Box>
-                <InputField placeholder='Credit Card Number' value='    -    -    -    '/>
+                <CardInput placeholder='Credit Card Number' name='card'/>
             </Box>
             <Box>
                 <InputField placeholder='Security CVV Code'/>
@@ -51,4 +52,4 @@ const CardInputForm = (props) => {
         </Box>
     )
 }
-export default CardInputForm;
+export default CreditInputForm;
