@@ -6,19 +6,26 @@ import SecurityLogo from './securityLogo';
 import { getValueFromString } from '../../utils/metafields';
 
 const CreditOrder = (props) => {
-    let tmp_button_text = '', tmp_button_text_color, tmp_button_color;
+    let tmp_button_text = '', tmp_button_text_color, tmp_button_color, tmp_default_discount = 0, tmp_default_quantity = 0, tmp_short_name = '';
 
     if(props.metadata.length > 0) {
         props.metadata.map(field => {
             if(field.key === 'button_text') tmp_button_text = getValueFromString(field.value, 'html');
             if(field.key === 'button_text_color') tmp_button_text_color = field.value;
             if(field.key === 'button_color') tmp_button_text = field.value;
+            if(field.key === 'offer_discount_1') tmp_default_discount = field.value;
+            if(field.key === 'offer_quantity_1') tmp_default_quantity = field.value;
+            if(field.key === 'product_shortname') tmp_short_name = field.value;
         })
     };
 
     const button_text = tmp_button_text;
     const button_text_color = tmp_button_text_color;
     const button_color = tmp_button_color;
+    const default_discount = tmp_default_discount;
+    const default_quantity = tmp_default_quantity;
+    const short_name = tmp_short_name;
+    
 
     const [selected, setSelected] = useState(false);
     const checkBump = (value) => {
@@ -26,6 +33,7 @@ const CreditOrder = (props) => {
     }
 
     const order = useSelector(state => state.order);
+    const price = order.price > 0 ? order.price : (props.price * (100 - default_discount) / 100).toFixed(2) * default_quantity;
 
     return (
         <Box mt={20}>
@@ -42,9 +50,9 @@ const CreditOrder = (props) => {
                 </Box>
                 <Box mt='17.6px'>
                     <CreditOrderDetail style={{background: `${selected?'whitesmoke': 'white'}`}}>
-                        <Box> unPillow Jumbo</Box>
+                        <Box> {short_name}{order.count > 1 ? 's': ''}</Box>
                         <Box>
-                            ${order.price}
+                            ${price}
                         </Box>
                     </CreditOrderDetail>
                 </Box>
@@ -70,7 +78,7 @@ const CreditOrder = (props) => {
                             <strong>TOTAL:&nbsp;</strong>(before taxes)
                         </Box>
                         <Box>
-                            ${selected?order.price + 9.97: order.price}
+                            ${selected?price + 9.97: price}
                         </Box>
                     </CreditOrderTotal>
                 </Box>

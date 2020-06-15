@@ -49,7 +49,7 @@ const SelectQuantity = (props) => {
 
     const selectOrder = (index) => {
         setNIndex(index);
-        const order = {name: short_name, price: (props.price * (100 - offer_discount[index]) / 100).toFixed(2) * offer_quantity[index]};
+        const order = {name: short_name, price: (props.price * (100 - offer_discount[index]) / 100).toFixed(2) * offer_quantity[index], count: offer_quantity[index]};
         dispatch({ type: 'ORDER', payload: {order}});
     }
     

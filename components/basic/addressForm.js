@@ -13,11 +13,13 @@ const AddressForm = (props) => {
     const [country, setCountry] = useState('');
     const [states, setStates] = useState('');
     const [city, setCity] = useState('');
+    const [zipcode, setZipcode] = useState('');
 
-    const fillAddressForm = (Country, States, City) => {
+    const fillAddressForm = (Country, States, City, Zipcode) => {
         setCity(City);
         setCountry(Country);
         setStates(States);
+        setZipcode(Zipcode);
     };
 
     return (
@@ -52,7 +54,7 @@ const AddressForm = (props) => {
                 </SelectBox>}
             </Box>
             <Box width='35%'>
-                <Input placeholder='Zip Code' name='zipcode'/>
+                <Input placeholder='Zip Code' name='zipcode'  value={zipcode}/>
             </Box>
         </Box>
     </Box>
