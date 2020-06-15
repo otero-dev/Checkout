@@ -1,7 +1,8 @@
 import { Box, InputField, SelectBox } from './index';
 import CardInput from './cardInput';
 
-const CreditInputForm = (props) => {    
+const CreditInputForm = (props) => {   
+    console.log(props) ;
     return (
         <Box>
             <Box>
