@@ -2,10 +2,19 @@ import { Box, InputField, SelectBox } from './index';
 import CardInput from './cardInput';
 
 const CreditInputForm = (props) => {
+    const seure_icon_style = {
+        width: '100px',
+        top: '20px',
+        right: '10px',
+        position: 'absolute',
+    };
     return (
         <Box>
-            <Box>
+            <Box position='relative'>
                 <CardInput placeholder='Credit Card Number' name='card'/>
+                <Box style={seure_icon_style}>
+                    <img src='/images/secure_icon.png' width='100%' alt=""/>
+                </Box>
             </Box>
             <Box>
                 <InputField placeholder='Security CVV Code'/>
