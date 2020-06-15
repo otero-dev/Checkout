@@ -3,21 +3,37 @@ import CardInput from './cardInput';
 
 const CreditInputForm = (props) => {
     const seure_icon_style = {
-        width: '100px',
-        top: '20px',
-        right: '10px',
-        position: 'absolute',
+        width: '130px',
+        marginLeft: '30px',
+        marginTop: '10px'
     };
+    const lock_icon_style = {
+        position: 'absolute',
+        width: '35px',
+        top: '25px',
+        right: '10px',
+        opacity: '0.3',
+    }
     return (
         <Box>
             <Box position='relative'>
                 <CardInput placeholder='Credit Card Number' name='card'/>
+                
+                <Box style={lock_icon_style}>
+                    <img src='/images/lock.svg' width='100%' alt=""/>
+                </Box>
+            </Box>
+            <Box display='flex' alignItems='center'>
+                <Box position='relative' width='48%'>
+                    <InputField placeholder='Security CVV Code'/>
+                    
+                    <Box style={lock_icon_style}>
+                        <img src='/images/lock.svg' width='100%' alt=""/>
+                    </Box>
+                </Box>
                 <Box style={seure_icon_style}>
                     <img src='/images/secure_icon.png' width='100%' alt=""/>
                 </Box>
-            </Box>
-            <Box>
-                <InputField placeholder='Security CVV Code'/>
             </Box>
             <Box display='flex' justifyContent='space-between'>
                 <Box width='48%'>
