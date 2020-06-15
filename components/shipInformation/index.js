@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Card } from '../basic';
 import AddressForm from '../basic/addressForm';
-import CardInputForm from '../basic/cardInputForm';
+import CardInputForm from '../basic/CreditInputForm';
 
 const ShipInformation = (props) => {
     return (
