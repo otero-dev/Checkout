@@ -4,7 +4,6 @@ import CardInput from './cardInput';
 const CreditInputForm = (props) => {
     const seure_icon_style = {
         width: '130px',
-        marginLeft: '30px',
         marginTop: '10px'
     };
     const lock_icon_style = {
@@ -25,15 +24,17 @@ const CreditInputForm = (props) => {
             </Box>
             <Box display='flex' alignItems='center'>
                 <Box position='relative' width='48%'>
-                    <InputField placeholder='Security CVV Code'/>
-                    
+                    <InputField placeholder='Security CVV Code'/>                    
                     <Box style={lock_icon_style}>
                         <img src='/images/lock.svg' width='100%' alt=""/>
                     </Box>
                 </Box>
-                <Box style={seure_icon_style}>
-                    <img src='/images/secure_icon.png' width='100%' alt=""/>
+                <Box width='48%' display='flex' justifyContent='center'>
+                    <Box style={seure_icon_style}>
+                        <img src='/images/secure_icon.png' width='100%' alt=""/>
+                    </Box>
                 </Box>
+                
             </Box>
             <Box display='flex' justifyContent='space-between'>
                 <Box width='48%'>
