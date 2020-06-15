@@ -6,7 +6,7 @@ import SecurityLogo from './securityLogo';
 import { getValueFromString } from '../../utils/metafields';
 
 const CreditOrder = (props) => {
-    let tmp_button_text = '', tmp_button_text_color, tmp_button_color, tmp_default_discount = 0, tmp_default_quantity = 0, tmp_short_name = '', tmp_bump_text;
+    let tmp_button_text = '', tmp_button_text_color, tmp_button_color, tmp_default_discount = 0, tmp_default_quantity = 0, tmp_short_name = '', tmp_bump_text = '', tmp_bump_amount = 0;
 
     if(props.metadata.length > 0) {
         props.metadata.map(field => {
@@ -17,6 +17,7 @@ const CreditOrder = (props) => {
             if(field.key === 'offer_discount_1') tmp_default_discount = field.value;
             if(field.key === 'offer_quantity_1') tmp_default_quantity = field.value;
             if(field.key === 'product_shortname') tmp_short_name = field.value;
+            if(field.key === 'order_bump_amount') tmp_bump_amount = field.value;
         })
     };
 
@@ -27,6 +28,8 @@ const CreditOrder = (props) => {
     const default_quantity = tmp_default_quantity;
     const short_name = tmp_short_name;
     const bump_text = tmp_bump_text;
+    const bump_amount = tmp_bump_amount;
+
     
 
     const [selected, setSelected] = useState(false);
@@ -61,7 +64,7 @@ const CreditOrder = (props) => {
                 {selected && <CreditOrderDetail>
                     <Box dangerouslySetInnerHTML={{__html: bump_text}} />
                     <Box>
-                        $9.97
+                        ${bump_amount}
                     </Box>
                 </CreditOrderDetail>}
                 <Box>
@@ -78,7 +81,7 @@ const CreditOrder = (props) => {
                             <strong>TOTAL:&nbsp;</strong>(before taxes)
                         </Box>
                         <Box>
-                            ${selected?price + 9.97: price}
+                            ${selected?price + bump_amount: price}
                         </Box>
                     </CreditOrderTotal>
                 </Box>
