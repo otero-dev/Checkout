@@ -43,7 +43,7 @@ const CardInput = (props) => {
 
     const onKeyClick = (ev) => {
         let str="0123456789";
-        if(str.indexOf(ev.key) > 1 || ev.key === 'Backspace') {
+        if(str.indexOf(ev.key) > 0 || ev.key === 'Backspace') {
             if(ev.key === 'Backspace') {
                 let deleted = value.slice(0, value.length -1);
                 setValue(deleted);
