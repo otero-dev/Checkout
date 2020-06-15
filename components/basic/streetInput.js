@@ -19,7 +19,7 @@ const StreetInput = (props) => {
         setValue,
         clearSuggestions
       } = usePlacesAutocomplete({
-        types: ["regions"]
+        types: ["regions", "postal_code", "geocode"]
       });
     const ref = useRef();
 
@@ -29,25 +29,25 @@ const StreetInput = (props) => {
     };
 
     const parseSelected = (description) => {        
-        var splited = description.split(", ");
-        const country = splited.length > 0 ? splited[splited.length - 1] : "";
-        const states = splited.length > 1 ? splited[splited.length - 2] : "";
-        const city = splited.length > 2 ? splited[splited.length - 3] : "";
-        const streetAddress = splited.length > 3 ? splited[0] : "";
-        setValue(streetAddress);
-        props.fillAddressForm(country, states, city);
-        if(streetAddress === "") setValid(false);
-        else setValid(true);
+        var splitted = description.split(", ");
+        const street = splitted[0];
+        const city = splitted[1];
+        const states = splitted[2].split(" ")[0];
+        const zipcode = splitted[2].split(" ")[1];
+        const country = splitted[3];
+        setValue(street);
+        props.fillAddressForm(country, states, city, zipcode);
+        setValid(true);
     }
 
     const handleSelect = ({ description }) => () => {
         // When user selects a place, we can replace the keyword without request data from API
-        // by setting the second parameter as "false"
-        parseSelected(description);
+        // by setting the second parameter as "false"        
 
         clearSuggestions();
         getGeocode({address: description}).then(res => {
-            getZipCode(res).then(zipRes=>console.log(zipRes));
+          console.log(res);
+          parseSelected(res[0].formatted_address);
         })
         .catch(error => {
             console.log(error);
