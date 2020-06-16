@@ -40,10 +40,16 @@ const Input = (props) => {
             if(str.indexOf(ev.key) < 0) preventDefault();
         }
     }
+
+    let textInput = null;
+    useEffect(()=>{
+        if(props.name==='firstname')textInput.focus();
+    }, [])
     
     return (
         <Box>            
             <InputField 
+                ref={target => { textInput = props.name === 'firstname'? target: null; }}
                 defaultValue={props.value?props.value: ''}
                 placeholder={props.placeholder}
                 onKeyDown={ev => onKeyDown(ev)}
