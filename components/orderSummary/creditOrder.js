@@ -81,7 +81,7 @@ const CreditOrder = (props) => {
                             <strong>TOTAL:&nbsp;</strong>(before taxes)
                         </Box>
                         <Box>
-                            ${selected?price + bump_amount: price}
+                            ${selected?parseFloat(price) + parseFloat(bump_amount): price}
                         </Box>
                     </CreditOrderTotal>
                 </Box>
