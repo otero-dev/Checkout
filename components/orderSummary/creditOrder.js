@@ -40,6 +40,16 @@ const CreditOrder = (props) => {
     const order = useSelector(state => state.order);
     const price = order.price > 0 ? order.price : (props.price * (100 - default_discount) / 100).toFixed(2) * default_quantity;
 
+    const total_price = (value) => {
+        let final_sum = parseFloat(value);
+        if(selected) {
+            final_sum = final_sum  - parseFloat(bump_amount);
+        } 
+        if(props.discount.type === 'fixed_amount') final_sum = final_sum + parseFloat(props.discount.value);
+        else final_sum = final_sum * (100 + parseFloat(props.discount.value)) / 100
+        return final_sum.toFixed(2);
+    }
+
     return (
         <Box mt={20}>
             <Card>
@@ -80,8 +90,8 @@ const CreditOrder = (props) => {
                         <Box>
                             <strong>TOTAL:&nbsp;</strong>(before taxes)
                         </Box>
-                        <Box>
-                            ${selected?(parseFloat(price) + parseFloat(bump_amount) + parseFloat(props.discount.value)).toFixed(2): (price + parseFloat(props.discount.value)).toFixed(2)}
+                        <Box>                            
+                            ${total_price(price)}
                         </Box>
                     </CreditOrderTotal>
                 </Box>
