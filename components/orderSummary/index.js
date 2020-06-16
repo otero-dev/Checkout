@@ -6,10 +6,9 @@ import CreditOrder from './creditOrder';
 
 
 const OrderSummary = (props) => {
-    const [discount, setDiscount] = useState({id: null, value: 0})
+    const [discount, setDiscount] = useState({id: null, value: 0, type: 'fixed_amount'})
     const checkDiscount = async (code) => {
         const res_discount = await axios.post('/api/discounts', {userCode: code}); //C3M8YHDMB05Z
-        console.log(res_discount.data);
         if(res_discount.data.length > 0) {
             setDiscount({id: res_discount.data[0].id, value: res_discount.data[0].value});
         }
