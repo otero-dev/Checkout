@@ -51,7 +51,7 @@ const CreditOrder = (props) => {
                     <OrderBump {...props} active={selected} checkBump={checkBump}/>
                 </Box>
                 <Box>
-                    <InputField placeholder='enter' />
+                    <InputField placeholder='enter' onBlur={ev => props.checkDiscount(ev.target.value)}/>
                 </Box>
                 <Box mt='17.6px'>
                     <CreditOrderDetail style={{background: `${selected?'whitesmoke': 'white'}`}}>
@@ -81,7 +81,7 @@ const CreditOrder = (props) => {
                             <strong>TOTAL:&nbsp;</strong>(before taxes)
                         </Box>
                         <Box>
-                            ${selected?parseFloat(price) + parseFloat(bump_amount): price}
+                            ${selected?(parseFloat(price) + parseFloat(bump_amount) + parseFloat(props.discount.value)).toFixed(2): (price + parseFloat(props.discount.value)).toFixed(2)}
                         </Box>
                     </CreditOrderTotal>
                 </Box>
