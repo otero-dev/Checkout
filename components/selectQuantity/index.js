@@ -10,6 +10,7 @@ const SelectQuantity = (props) => {
         tmp_right_text = '',
         tmp_short_name = '',
         tmp_discount_headline = '',
+        tmp_discount_head_color = '',
         tmp_discount_icon = '',
         tmp_discount_subline = '';
 
@@ -33,6 +34,7 @@ const SelectQuantity = (props) => {
             if(field.key === 'discount_headline') tmp_discount_headline = getValueFromString(field.value, 'html');            
             if(field.key === 'discount_subheadline') tmp_discount_subline = getValueFromString(field.value, 'html');
             if(field.key === 'discount_icon') tmp_discount_icon = getValueFromObjectString(field.value, 'src');
+            if(field.key === 'discount_header_color') tmp_discount_head_color = field.value;
         })
     };
 
@@ -44,6 +46,8 @@ const SelectQuantity = (props) => {
     const discount_headline = tmp_discount_headline;
     const discount_subheadline = tmp_discount_subline;
     const discount_icon = tmp_discount_icon;
+    const discount_head_color = tmp_discount_head_color;
+
     const [nIndex, setNIndex] = useState(0);
     const dispatch = useDispatch();
 
@@ -67,8 +71,8 @@ const SelectQuantity = (props) => {
                     <Box height='120px'>
                         <img src={discount_icon} height='100%'/>
                     </Box>
-                    <DiscountDescription>
-                        <Box dangerouslySetInnerHTML={{__html: discount_headline}} />
+                    <DiscountDescription color={discount_head_color}>
+                        <Box dangerouslySetInnerHTML={{__html: discount_headline}}/>
                         <Box dangerouslySetInnerHTML={{__html: discount_subheadline}} />
                     </DiscountDescription>
                 </Box>

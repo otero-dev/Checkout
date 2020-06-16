@@ -1,5 +1,6 @@
 import { Box, InputField, SelectBox } from './index';
 import CardInput from './cardInput';
+import Input from './customInputField';
 
 const CreditInputForm = (props) => {
     const seure_icon_style = {
@@ -24,7 +25,7 @@ const CreditInputForm = (props) => {
             </Box>
             <Box display='flex' alignItems='center'>
                 <Box position='relative' width='48%'>
-                    <InputField placeholder='Security CVV Code' name='security'/>
+                    <Input placeholder='Security CVV Code' name='security'/>
                     <Box style={lock_icon_style}>
                         <img src='/images/lock.svg' width='100%' alt=""/>
                     </Box>
