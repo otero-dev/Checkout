@@ -19,7 +19,7 @@ const PaypalOrder = (props) => {
                     <OrderBump {...props} active={selected} checkBump={checkBump}/>
                 </Box>
                 <Box>
-                    <InputField placeholder='enter' />
+                    <InputField placeholder='enter' onBlur={ev => props.checkDiscount(ev.target.value)}/>
                 </Box>
                 <Box>
                     <PaypalButton>
