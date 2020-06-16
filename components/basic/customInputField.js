@@ -27,7 +27,12 @@ const Input = (props) => {
         if(props.name === 'email') {
             if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(ev)) setValid(true)
             else setValid(false);
-        } else {
+        } 
+        else if(props.name === 'security') {
+            if(ev.length > 4) setValid(false);
+            else setValid(true);
+        }
+        else {
             if(ev==='') setValid(false)
             else setValid(true);
         }
@@ -36,8 +41,8 @@ const Input = (props) => {
     const onKeyDown = (ev) => {
         console.log('here');
         if(props.name === 'security') {
-            let str="0123456789";
-            if(str.indexOf(ev.key) < 0) preventDefault();
+            let str="\\!@#$%^&*()_+-=~`QWERTYUOP{}qwertyuiop[]ASDFGHJKL:\"|asdfghjkl;'ZXCVBNM<>?zxcvbvnm,./ ";
+            if(str.indexOf(ev.key) > -1) ev.preventDefault();
         }
     }
 

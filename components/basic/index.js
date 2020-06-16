@@ -343,7 +343,7 @@ export const DiscountDescription = styled.div`
     font-size: 18px;
     font-weight: bold;
     margin: 0;
-    color: #c91f3f;
+    color: ${props => (props.color ? props.color : 'black')};
   }
   & h4 {
     font-weight: normal;
