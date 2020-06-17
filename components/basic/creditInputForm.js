@@ -25,7 +25,7 @@ const CreditInputForm = (props) => {
             </Box>
             <Box display='flex' alignItems='center'>
                 <Box position='relative' width='48%'>
-                    <Input placeholder='Security CVV Code' name='security'/>
+                    <Input placeholder='(Security 3-4 Digits) Code' name='security'/>
                     <Box style={lock_icon_style}>
                         <img src='/images/lock.svg' width='100%' alt=""/>
                     </Box>
