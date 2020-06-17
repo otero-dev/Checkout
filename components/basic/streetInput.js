@@ -26,6 +26,7 @@ const StreetInput = (props) => {
     const handleInput = e => {
     // Update the keyword of the input element
         setValue(e.target.value);
+        setValid(e.target.value === '' ? false: true); // need to be fixed.
     };
 
     const parseSelected = (description) => {        
