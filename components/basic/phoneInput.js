@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react';
+import axois from 'axios';
 import PhoneInput from 'react-phone-input-2';
 import { Box, InvalidBox } from './index';
 
@@ -7,6 +8,7 @@ const Phone = () => {
     const [edit, setEdit] = useState(false);
     const [valid, setValid] = useState(false);
     const [phone, setPhone] = useState('');
+    const [code, setCode] = useState('us');
     const [start, setStart] = useState(false);
     
     const input_style = {
@@ -40,29 +42,29 @@ const Phone = () => {
         borderRadius: '5px'
     }
 
-    const checkValidation = () => {
+    const checkValidation = async () => {
+        console.log(phone);
+        const res = await axois.post('/api/phoneValidate', {number: phone, code: code});
+        setValid(res.data.valid);
         setEdit(false);
-        if(/^(1?(-?\d{3})-?)?(\d{3})(-?\d{4})$/.test(phone)) setValid(true)
-        else setValid(false);
     }
 
-    const onChange = number => {
+    const onChange = (number, data) => {
+        setCode(data.countryCode);
         setPhone(number);
     }
 
     return (
         <Box>
             <PhoneInput
-                placeholder={'Phone'}
                 country={'us'}
-                onlyCountries={['us', 'ca']}
-                localization={{de: 'Deutschland', es: 'España'}}
+                placeholder={'Phone'}
                 inputStyle={input_style}
                 containerStyle={container_style}
                 buttonStyle={button_style}
                 onFocus={() => {setEdit(true); setStart(true)}}
                 onBlur={checkValidation}
-                onChange={phone => onChange(phone)}
+                onChange={(phone, data) => onChange(phone, data)}
             />
             {(start && !valid && !edit) &&  <InvalidBox>
                 Please Enter A Valid Phone Number
