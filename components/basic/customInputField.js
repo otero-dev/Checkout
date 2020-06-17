@@ -24,7 +24,10 @@ const Input = (props) => {
         setEdit(false);
         if(props.name === 'email') {
             if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(ev)) setValid(true)
-            else setValid(false);
+            else {
+                setValid(false);
+                textInput.focus();
+            }
         } 
         else if(props.name === 'security') {
             if(ev.length > 4) setValid(false);
@@ -59,7 +62,7 @@ const Input = (props) => {
         <Box>            
             <InputField 
                 maxLength={props.name === 'security' ? 4 : 100}
-                ref={target => { textInput = props.name === 'firstname'? target: null; }}
+                ref={target => { textInput = target }}
                 defaultValue={props.value?props.value: ''}
                 placeholder={props.placeholder}
                 onKeyDown={ev => onKeyDown(ev)}
