@@ -15,10 +15,8 @@ const Input = (props) => {
 
     const INVALID_MSG = {
         email: 'Please Enter A Valid Email Address',
-        street: 'Please Enter A Valid Street Address',
         city: 'Please Enter A Valid City',
         zipcode: 'Please Enter A Valid Zip Code',
-        card_number: 'Please Enter A Valid Credit Card Number',
         security_code: 'Please Enter A Valid Security Code',
     };
 
