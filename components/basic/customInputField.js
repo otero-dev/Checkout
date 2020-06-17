@@ -37,12 +37,18 @@ const Input = (props) => {
             else setValid(true);
         }
     }
+    const validateNumber = (event) => {
+        return event.ctrlKey || event.altKey 
+                    || (47<event.keyCode && event.keyCode<58 && event.shiftKey==false) 
+                    || (95<event.keyCode && event.keyCode<106)
+                    || (event.keyCode==8) || (event.keyCode==9) 
+                    || (event.keyCode>34 && event.keyCode<40) 
+                    || (event.keyCode==46)
+    }
 
     const onKeyDown = (ev) => {
-        console.log('here');
         if(props.name === 'security') {
-            let str="\\!@#$%^&*()_+-=~`QWERTYUOP{}qwertyuiop[]ASDFGHJKL:\"|asdfghjkl;'ZXCVBNM<>?zxcvbvnm,./ ";
-            if(str.indexOf(ev.key) > -1) ev.preventDefault();
+            if(!validateNumber(ev)) ev.preventDefault();
         }
     }
 
@@ -54,6 +60,7 @@ const Input = (props) => {
     return (
         <Box>            
             <InputField 
+                maxLength={props.name === 'security' ? 4 : 100}
                 ref={target => { textInput = props.name === 'firstname'? target: null; }}
                 defaultValue={props.value?props.value: ''}
                 placeholder={props.placeholder}

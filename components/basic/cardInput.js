@@ -40,20 +40,27 @@ const CardInput = (props) => {
             // console.log(value);
         }
     }
+    
+    const validateNumber = (event) => {
+        return event.ctrlKey || event.altKey 
+                    || (47<event.keyCode && event.keyCode<58 && event.shiftKey==false) 
+                    || (95<event.keyCode && event.keyCode<106)
+                    || (event.keyCode==8) || (event.keyCode==9) 
+                    || (event.keyCode>34 && event.keyCode<40) 
+                    || (event.keyCode==46)
+    }
 
     const onKeyClick = (ev) => {
         let str="0123456789";
-        if(str.indexOf(ev.key) > 0 || ev.key === 'Backspace') {
-            if(ev.key === 'Backspace') {
-                let deleted = value.slice(0, value.length -1);
-                setValue(deleted);
-            } else {
-                setValue(changeValue(value + ev.key))
-            }
+        if(!validateNumber(ev)) {ev.preventDefault(); return;}
+        
+        if(ev.key === 'Backspace') {
+            let deleted = value.slice(0, value.length -1);
+            setValue(deleted);
+        } else {
+            setValue(changeValue(value + ev.key))
         }
-        else
-            ev.preventDefault();
-            return;
+        
     }
 
     return (
