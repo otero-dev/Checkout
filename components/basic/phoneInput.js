@@ -64,7 +64,9 @@ const Phone = () => {
   return (
     <Box>
       <PhoneInput
+        disableCountryCode={true}
         country={"us"}
+        onlyCountries={["us", "ca"]}
         placeholder={"Phone"}
         inputStyle={input_style}
         containerStyle={container_style}
