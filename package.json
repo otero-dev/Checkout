@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "format": "prettier --write '{static,static/**,utils,utils/**,pages,pages/**,reducers,reducers/**,components,components/**,actions,actions/**,config,config/**}/*.{js,css,html}'"
   },
   "dependencies": {
     "@stripe/react-stripe-js": "^1.1.2",

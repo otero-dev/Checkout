@@ -37,8 +37,8 @@ import {
   maxHeight,
   textAlign,
   size,
-} from 'styled-system';
-import styled, {keyframes} from 'styled-components';
+} from "styled-system";
+import styled, { keyframes } from "styled-components";
 
 export const Box = styled.div`
   ${space}
@@ -86,7 +86,7 @@ export const Container = styled.div`
   margin: auto;
 
   @media only screen and (max-width: 1200px) {
-     width: 100%;
+    width: 100%;
   }
 `;
 
@@ -101,15 +101,15 @@ export const NavBar = styled.div`
   }
 `;
 
-// product summary 
+// product summary
 export const ProductSummaryWrapper = styled.div`
   margin-top: 10px;
   min-height: 200px;
-  padding:10px 50px;
+  padding: 10px 50px;
   border: 2px dashed black;
   display: flex;
   justify-content: space-between;
-  background: #fff;  
+  background: #fff;
   @media only screen and (max-width: 1200px) {
     display: block;
   }
@@ -119,8 +119,8 @@ export const ProductOverview = styled.div`
   width: 40%;
   @media only screen and (max-width: 1200px) {
     width: 100%;
-  };
-`
+  }
+`;
 
 export const Headline = styled.div`
   display: flex;
@@ -138,10 +138,10 @@ export const Headline = styled.div`
 export const FeatureLine = styled.div`
   margin-left: 15px;
   & p {
-    margin: 10px 0; 
-    line-height: 18pt
+    margin: 10px 0;
+    line-height: 18pt;
   }
-`
+`;
 
 export const FeatureWrapper = styled.div`
   display: flex;
@@ -156,7 +156,7 @@ export const ProductImage = styled.div`
   overflow-y: auto;
   @media only screen and (max-width: 1200px) {
     width: 100%;
-  };
+  }
 `;
 
 export const ProductGallary = styled.div`
@@ -166,7 +166,7 @@ export const ProductGallary = styled.div`
   overflow-x: auto;
   @media only screen and (max-width: 1200px) {
     width: 100%;
-  };
+  }
 `;
 
 export const GallaryCell = styled.div`
@@ -175,10 +175,9 @@ export const GallaryCell = styled.div`
   display: flex;
   align-items: center;
   margin-right: 16px;
-`
+`;
 
 export const ProductDescription = styled.div`
-  
   display: inline-block;
   width: calc(60% - 35.2px);
   padding: 35.2px;
@@ -186,30 +185,28 @@ export const ProductDescription = styled.div`
   @media only screen and (max-width: 1200px) {
     width: 100%;
     padding: 0;
-  };
+  }
 `;
-
 
 export const Wrapper = styled.div`
   width: 48.5%;
   @media only screen and (max-width: 1200px) {
     width: 100%;
-  };
+  }
 `;
 
 export const SuperWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  
+
   @media only screen and (max-width: 1200px) {
     display: block;
-  };
+  }
 `;
-
 
 // Select Quantity
 export const Card = styled.div`
-  padding: 15px;  
+  padding: 15px;
   background: #fff;
   border-radius: 5px;
   border: 1px solid #ccc;
@@ -252,7 +249,6 @@ export const MenuItem = styled.div`
   cursor: pointer;
 `;
 
-
 export const DiscountMenuItem = styled.div`
   height: 70px;
   display: flex;
@@ -276,7 +272,7 @@ export const InputField = styled.input`
   padding: 17.6px;
   font-size: 16px;
   &:focus {
-    box-shadow: 0px 0px 0px 2px rgba(26,178,44,0.5);
+    box-shadow: 0px 0px 0px 2px rgba(26, 178, 44, 0.5);
   }
 `;
 
@@ -297,44 +293,44 @@ export const SelectBox = styled.select`
   margin-top: 17.6px;
   background-color: whitesmoke;
   padding: 17.6px;
-  font-size: 16px;  
-`
+  font-size: 16px;
+`;
 
 export const DiscountBrand = styled.div`
-    width: 100px;
-    min-width: 100px;
-    height: 100px;
-    background-color: #c91f3f;
-    border-radius: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    font-size: 22px;
-    color: white;
-    font-weight: bold;
-    letter-spacing: 1px;
-    line-height: 110%;
+  width: 100px;
+  min-width: 100px;
+  height: 100px;
+  background-color: #c91f3f;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-size: 22px;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 1px;
+  line-height: 110%;
 `;
 
 const spin = keyframes`  
   100% {
     transform:rotate(-360deg); 
   }
-`
+`;
 
 export const DiscoundDash = styled.div`
-    width: 84px;
-    height: 84px;
-    border: 2px dashed white;
-    position: absolute;
-    border-radius: 100%;
-    animation-name: ${spin};
-    animation-duration: 12s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-delay: 0s;
-`
+  width: 84px;
+  height: 84px;
+  border: 2px dashed white;
+  position: absolute;
+  border-radius: 100%;
+  animation-name: ${spin};
+  animation-duration: 12s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-delay: 0s;
+`;
 
 export const DiscountDescription = styled.div`
   text-align: center;
@@ -343,7 +339,7 @@ export const DiscountDescription = styled.div`
     font-size: 18px;
     font-weight: bold;
     margin: 0;
-    color: ${props => (props.color ? props.color : 'black')};
+    color: ${(props) => (props.color ? props.color : "black")};
   }
   & h4 {
     font-weight: normal;
@@ -367,7 +363,7 @@ const bump = keyframes`
   25% {
     left: -40px;
   }
-`
+`;
 
 export const Arrow = styled.div`
   position: absolute;
@@ -389,97 +385,97 @@ export const ContactUs = styled.div`
   & p {
     margin: 5px 0;
   }
-  
+
   @media only screen and (max-width: 1200px) {
     display: none;
-  };
-`
+  }
+`;
 
 export const StoreLogo = styled.div`
   margin-left: 17.6px;
   display: flex;
   justify-content: space-between;
   width: 65%;
-  align-items: center;  
+  align-items: center;
 `;
 
 export const SSLLogo = styled.div`
   @media only screen and (max-width: 1200px) {
     display: none;
-  }; 
+  }
 `;
 
 export const CreditOrderDetail = styled.div`
-    display: flex;
-    align-items: center;
-    padding: 18px 5px 18px 10px;
-    border-radius: 5px;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  padding: 18px 5px 18px 10px;
+  border-radius: 5px;
+  justify-content: space-between;
 `;
 
 export const CreditOrderShip = styled.div`
-    display: flex;
-    align-items: center;
-    padding: 18px 5px 18px 10px;
-    border-radius: 5px 5px 0 0;
-    justify-content: space-between;
-    background: whitesmoke;
+  display: flex;
+  align-items: center;
+  padding: 18px 5px 18px 10px;
+  border-radius: 5px 5px 0 0;
+  justify-content: space-between;
+  background: whitesmoke;
 `;
 
 export const CreditOrderTotal = styled.div`
-    display: flex;
-    align-items: center;
-    padding: 18px 5px 18px 10px;
-    border-radius: 0 0 5px 5px;
-    justify-content: space-between;
-    background: whitesmoke;
+  display: flex;
+  align-items: center;
+  padding: 18px 5px 18px 10px;
+  border-radius: 0 0 5px 5px;
+  justify-content: space-between;
+  background: whitesmoke;
 `;
 
 export const CardPayButton = styled.button`
-    transition: all 600ms cubic-bezier(0, 0.3, 0.7, 1);
-    background-color: #1ab22c;
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
-    letter-spacing: 1px;
-    font-weight: bold;
-    -webkit-appearance: none !important;
-    -moz-appearance: none !important;
-    appearance: none !important;
-    line-height: 150%;
-    height: initial;
-    padding: 13.1px;
-    margin-top: 17.6px;
-    width: 100%;
-    border-radius: 5px;
-    border: none;
-    & p {
-      margin: 0;
-    }
-    &:hover {
-      background-color: #159324;
-    }
-`
+  transition: all 600ms cubic-bezier(0, 0.3, 0.7, 1);
+  background-color: #1ab22c;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  font-weight: bold;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  line-height: 150%;
+  height: initial;
+  padding: 13.1px;
+  margin-top: 17.6px;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+  & p {
+    margin: 0;
+  }
+  &:hover {
+    background-color: #159324;
+  }
+`;
 
 export const PaypalButton = styled.button`
-    transition: all 300ms ease-out;
-    width: 100%;
-    height: 50px;
-    background-color: #ffbd03;
-    border-radius: 5px;
-    margin: 17.6px auto 0 auto;
-    font-size: 14px;
-    letter-spacing: 1px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    border-radius: 5px;
-    border: none;
-    &:hover {
-      background-color: #e9ac00;
-    }
+  transition: all 300ms ease-out;
+  width: 100%;
+  height: 50px;
+  background-color: #ffbd03;
+  border-radius: 5px;
+  margin: 17.6px auto 0 auto;
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  &:hover {
+    background-color: #e9ac00;
+  }
 `;
 
 export const QuestionCard = styled.div`
@@ -497,11 +493,11 @@ export const QuestionCard = styled.div`
 `;
 
 export const AnswerCard = styled.div`
-    padding: 20px 40px;
+  padding: 20px 40px;
 `;
 
 export const PriceTag = styled.div`
-    text-decoration: line-through;
+  text-decoration: line-through;
 `;
 
 export const FooterBox = styled.div`
@@ -511,7 +507,7 @@ export const FooterBox = styled.div`
   position: relative;
   overflow: hidden;
   color: #9d9fa2;
-  
+
   & a {
     text-decoration: none;
     color: inherit;
