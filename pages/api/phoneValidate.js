@@ -6,7 +6,7 @@ export default (req, res) => {
   );
 
   client.lookups
-    .phoneNumbers(`+${number}`)
+    .phoneNumbers(`+1${number}`)
     .fetch({ countryCode: code })
     .then((phone_number) =>
       res.status(200).json({ valid: true, phone_number: phone_number })
