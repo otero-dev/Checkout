@@ -15,7 +15,7 @@
     "btoa": "^1.2.1",
     "next": "9.4.4",
     "next-redux-wrapper": "^6.0.2",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "react": "16.13.1",
     "react-cool-onclickoutside": "^1.4.8",
     "react-country-flag": "^2.1.0",
